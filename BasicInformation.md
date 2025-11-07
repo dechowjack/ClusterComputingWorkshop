@@ -46,7 +46,7 @@ usage: rm -r folder # delete directory `folder` and everything within it
 ### 1.4 Example command line interactions
 Below is a example of using these operations on the command line
 
-```
+```bash
 jldechow@Jacks-MBP Data % pwd
 /Users/jldechow/Data
 jldechow@Jacks-MBP Data % cd SWOT 
@@ -67,7 +67,7 @@ In this example, we have used `pwd` to determine we are in the directory `/Users
 
 Next, let’s use some other commands to make a test file and move it around.
 
-```
+```bash
 jldechow@Jacks-MBP SWOT % touch test.txt              
 jldechow@Jacks-MBP SWOT % echo "Hello world" > test.txt
 jldechow@Jacks-MBP SWOT % cat test.txt              
@@ -77,7 +77,8 @@ Hello world
 Let’s break this down line-by-line. First, we used `touch test.txt` to make an empty plain text file named `test.txt`. Next we used a more complicated set of commands involving `echo` and the redirection operator `>`. On its own, `echo “hello world”` would print “hello world” to the command line. When used in combination with the redirection operator the command `echo "Hello world" > test.txt` prints “hello world” *into* the file named `test.txt`. Finally, `cat test.txt` prints the contents of the file `test.txt` to the command line.
 
 Now, let’s make a copy of this file and move it to a new directory. 
-```
+
+```bash
 jldechow@Jacks-MBP SWOT % cp test.txt test2.txt
 jldechow@Jacks-MBP SWOT % ls
 Archive		test.txt	TuolumneMeadows
@@ -95,7 +96,7 @@ Here, we used `cp test.txt test2.txt` to make a copy of `text.txt` called `test2
 
 Finally, lets remove the test files
 
-```
+```bash
 jldechow@Jacks-MBP SWOT % rm test_dir/test.txt
 jldechow@Jacks-MBP SWOT % ls test_dir 
 test2.txt
@@ -120,7 +121,7 @@ To actually connect to the cluster, we use the command `ssh` to use the `secure 
 
 In my case when I ssh to the GHL cluster I see the following:
 
-```
+```bash
 jldechow@Jacks-MBP SWOT % ssh jldechow@river.emes.unc.edu
 ***************************************************************************
 
@@ -136,8 +137,8 @@ Here, enter your password and you are officially “remotely connected to the cl
 ## 3. Using the cluster
 ### 3.1 Basic structure of the GHL cluster
 While the examples in this section are specific to the UNC EMES River cluster, most of these ideas are generically applicable to most cluster systems. First, lets see *where* on the cluster we end up after a successful `ssh` execution.
-```
 
+```bash
 Last login: Fri Nov  7 13:14:45 2025 from 152.23.121.91
 ##########################################################################
 #                                                                        #
@@ -167,7 +168,7 @@ jldechow@river:~$
 
 When I `ssh` into the `River` cluster, it prints out the resources available on the cluster. After using `pwd` we can see the I am in the directory `/afs/cas.unc.edu/users/j/l/jldechow` which is my *home* directory. On UNIX systems, your home directory is most often given the `alias` or `symbolic link` of `~`. Let’s print that out below on the CLI
 
-```
+```bash
 jldechow@river:~$ readlink -f ~
 /afs/cas.unc.edu/users/j/l/jldechow
 ```
