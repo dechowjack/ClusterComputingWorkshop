@@ -174,3 +174,55 @@ jldechow@river:~$ readlink -f ~
 ```
 
 Here we use command `readlink` to print the value of a `symlink` with the flag `-f` to ensure that if there are nested symlinks, they all print their full path.  
+
+### 3.2 Understanding the available resources
+Let's revisit the splash text printed by the River Cluster when we first `ssh` into the remote machine.
+
+```bash
+Last login: Fri Nov  7 13:14:45 2025 from 152.23.121.91
+##########################################################################
+#                                                                        #
+#  University of North Carolina at Chapel Hill                           #
+#                College of Arts and Sciences Teaching and research      #
+#                     Linux Environment (C.A.S.T.L.E.)                   #
+#                                                                        #
+# Report problems with this system and requests for assistance at        #
+#  <http://help.unc.edu/>. Please mention OASIS-Linux-Support in         #
+#  the incident report.                                                  #
+#                                                                        #
+##########################################################################
+Host:     river.emes.unc.edu | 152.19.218.21 | 3e:de:7d:a9:48:79
+OS:       Ubuntu 24.04 | 6.8.0-85-generic
+Platform: Dell Inc. PowerEdge R7725
+Memory:   515.2GB
+CPU:      96 vcpu | 2 socket | 24 cores-per-socket | 2 threads-per-core
+
+Last_Managed: 2025-11-07 12:05:04 EST
+
+
+***************************************************************************
+jldechow@river:~$ 
+```
+#### Host
+Let's go through and break this down line by line, starting with the `Host`. For example, CLI on River shows `jldechow@river:`. This shows that the user `jldechow` is logged onto the host machine `river`. For small clusters or local machines, this is not super important. However, on large HPC clusters, sometimes the `host` where your `user` and directories live at doesn't match up with the `host` that compute job are run on. On a MacOS machine, you can see this in the terminal as well. For example, on my laptop the terminal shows `jldechow@Jacks-MBP`. As far as the operating system is concerned, the name of my computer is `Jacks-MBP`. The hostname for a Windows machine can be seen in the "About this PC" section. 
+
+#### OS
+Next, the splash reports that the operating system or OS the server is running on is `Ubuntu 24.04 | 6.8.0-85-generic`. Ubuntu is a free and widely used distribution of `Linux`. Linux is another UNIX-like OS, and is used on virtually every single supercomputer. Ubuntu is a specific distribution, which can be though of as the "brand" of Linux you are using. Other popular distributions for HPC applications are `Redhat` and `Debian`.
+
+#### Platform
+This computer was manufactured by Dell, and the model name and number is `PowerEdge R7725`.
+
+#### Memory
+Memory or RAM (random access memory) is the amount of high speed storage used for cache-ing or holding data/programs/addresses for easy access. Computers typical have RAM in quantities that are powers of 2. Since the system reports `515.2GB` of RAM, the system likely has `512GB` of RAM available for computing, and the other `3.2GB` of RAM is reserved for system level processes (i.e. running the remote machine).
+
+#### CPU
+Finally, the CPU. The Central Processing Unit is the "brain" or "engine" of a computer. The splash gives us the following information:
+`CPU:      96 vcpu | 2 socket | 24 cores-per-socket | 2 threads-per-core`
+Lets break this down in a slightly different order than it's given to us:
+`2 socket` - This machine has two physical CPUs. Most consumer computers have 1.
+
+`24 cores-per-socket` A CPU is called a central processing `unit` for a reason. The unit itself has multiple `processors` that are each called a `core`. Since the splash tells us that the server has `24 cores-per-socket`, we know that we have `1 CPU` in each of our `2 sockets` and each of our `1 CPU` has `24 processor cores`. This gives us a total of `48 physical cores`. 
+`96 vcpu` - Historically, a single CPU core could process a single set of instructions at a time. Through a method called `multithreading`, a single physical core can be split into 2,4, or 8 `virtual cores`. On some retail CPUs this is marketed as `hyperthreading`. Given that we have `2 CPU` @ `24 cores-per-socket` and `96 vcpu`, we can assume that the multithreading on this machine is `2x`.
+
+
+Given all of this, in theory a single job on the River cluster could request `512GB` of RAM and `96 CPUs`. This would be very rude though!
