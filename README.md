@@ -1,7 +1,4 @@
 # ClusterComputingWorkshop
-"""
-README.md Jack Dechow 11/07/25
-"""
 
 I. Introduction
 This repo contains written guides, sample shell scripts, and tutorials to teach the skills necessary to begin doing work on a remote machine. This project was started as a workshop for the Pavelsky Global Hydrology Lab at UNC Chapel Hill. While many parts of this are intended as a reference for the EMES River cluster at Chapel Hill, the information provided here is largely applicable to any HPC system on a UNIX OS. In portions where the config on the EMES River Cluster is atypical, I have made an attempt to include the relevant information for a more standard HPC UNIX config. This project is currently a work in progress.
