@@ -3,8 +3,8 @@
 ### 1.1 What is a cluster?
 Cluster typically refers to a remote machine - i.e. *not* your local computer - that a user connects to using command line utilities. These machines have more logical CPU cores, RAM, VRAM, and storage available than the computers most people use. Multiple users can simultaneously access a cluster at once, and request a portion of the available resources to run programs. The benefit of running your work on a cluster is: 
 
-  1. Clusters can run complex programs faster than a local machine
-  2. Running on a cluster frees up resources on your local machine to allow you to run visualization scripts, write, etc without impacting the runtime of your programs.
+1. Clusters can run complex programs faster than a local machine
+2. Running on a cluster frees up resources on your local machine to allow you to run visualization scripts, write, etc without impacting the runtime of your programs.
 
 ### 1.2 UNIX basics
 Clusters generally run on an operating system derived from the UNIX family of operating systems. The most widely know UNIX-like OS is probably MacOS. There are many differences between Windows and UNIX-like operating systems, but the two most applicable to the average user are:
@@ -15,7 +15,7 @@ Clusters generally run on an operating system derived from the UNIX family of op
 Separate from these, the interface with the cluster is entirely in the CLI. There is not a graphical user interface (GUI). 
 
 ### 1.3 Basic command line operations
-In your day to day life on an OS with a GUI, things like copy-paste or changing directories is a clicking-based operation. In reality, when you highlight then copy-paste text, your OS is running the CLI operations that correspond to what you’ve clicked. These operations are usually done in a language called *bash*. Below, I will list common bash commands that help with everyday use on the clusters
+In your day to day life on an OS with a GUI, things like copy-paste or changing directories is a clicking-based operation. In reality, when you highlight then copy-paste text, your OS is running the CLI operations that correspond to what you’ve clicked. These operations are usually done in a language called *bash*. Below is a list common bash commands that help with everyday use on the clusters
 
 | **Command** | **Purpose**             | **Example Usage**                                          | **Explanation**                                                                           |
 | ----------- | ----------------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -31,7 +31,7 @@ In your day to day life on an OS with a GUI, things like copy-paste or changing 
 
 
 ### 1.4 Example command line interactions
-Below is a example of using these operations on the command line
+Below is an example of using these operations on the command line
 
 ```bash
 jldechow@Jacks-MBP Data % pwd
@@ -47,10 +47,10 @@ drwxr-xr-x   7 jldechow  staff   224B Nov  7 13:47 Archive
 
 In this example, we have used `pwd` to determine we are in the directory `/Users/jldechow/Data`. Next, we use `cd` to move to the directory `/Users/jldechow/Data/SWOT`. Finally, we use `ls` to see everything in the `SWOT` directory. The characters `-ltrh` after `ls` are called *flags*. Flags are used to turn on/off specific options for commands. Flags usually need to be in any specific order. In this example, the flags did the following:
 
-`-l` output format LONG
-`-t` list files by newest time first
-`-r` output reverse order 
-`-h` human readable format
+- `-l` output format LONG
+- `-t` list files by newest time first
+- `-r` output reverse order 
+- `-h` human readable format
 
 Next, let’s use some other commands to make a test file and move it around.
 
@@ -61,7 +61,7 @@ jldechow@Jacks-MBP SWOT % cat test.txt
 Hello world
 ```
 
-Let’s break this down line-by-line. First, we used `touch test.txt` to make an empty plain text file named `test.txt`. Next we used a more complicated set of commands involving `echo` and the redirection operator `>`. On its own, `echo “hello world”` would print “hello world” to the command line. When used in combination with the redirection operator the command `echo "Hello world" > test.txt` prints “hello world” *into* the file named `test.txt`. Finally, `cat test.txt` prints the contents of the file `test.txt` to the command line.
+Let’s break this down line-by-line. First, we used `touch test.txt` to make an empty plain text file named `test.txt`. Next we used a more complicated set of commands involving `echo` and the redirection operator `>`. On its own, `echo “Hello world”` would print “Hello world” to the command line. When used in combination with the redirection operator the command `echo "Hello world" > test.txt` prints “hello world” *into* the file named `test.txt`. Finally, `cat test.txt` prints the contents of the file `test.txt` to the command line.
 
 Now, let’s make a copy of this file and move it to a new directory. 
 
@@ -93,7 +93,7 @@ jldechow@Jacks-MBP SWOT % rm -r test_dir
 jldechow@Jacks-MBP SWOT % ls
 Archive		LakeObs		TuolumneMeadows	ZipFiles
 ```
-First, we use `rm test_dir/test.txt` to remove the first test file, and we use `ls test_dir` to confirm it’s been deleted. Next, we use `rm test_dir` to try to remove the directory. As you can see in the command line output, it doesn’t work because `test_dir` is a directory! The next line, we do it again with the flag for a recursive operation: `-r`. Generally, this flag is required for any operations involving folders. Using `rm -r test_dir` we remove `test_dir/` and its contents, and then confirm it’s gone.
+Here, we used `rm test_dir/test.txt` to remove the first test file, and we use `ls test_dir` to confirm it’s been deleted. Next, we use `rm test_dir` to try to remove the directory. As you can see in the command line output, it doesn’t work because `test_dir` is a directory! The next line, we do it again with the flag for a recursive operation: `-r`. Generally, this flag is required for any operations involving folders. Using `rm -r test_dir` we remove `test_dir/` and its contents, and then confirm it’s gone with `ls`.
 
 ## 2. Accessing the cluster
 ### 2.1 Terminal
@@ -102,11 +102,11 @@ For MacOS users, the only requirement is to open the native `Terminal` app.
 For Windows users, a terminal application needs to be downloaded. When I was working on windows machines, I used the `PuTTY` terminal emulator (https://putty.org/index.html). 
 
 ### 2.2 SSH
-To actually connect to the cluster, we use the command `ssh` to use the `secure shell protocol`. If you’ve ever heard someone say “I need to remote into the cluster”, this is what they mean. To actually do this, open your `Terminal` application and type the following command:
+To actually connect to the cluster, we use the command `ssh` to connect using the `secure shell protocol`. If you’ve ever heard someone say “I need to remote into the cluster”, this is what they mean. To actually do this, open your `Terminal` application and type the following command:
 
 `ssh onyen@river.emes.unc.edu`
 
-In my case when I ssh to the GHL cluster I see the following:
+In my case, when I ssh to the GHL cluster I see the following:
 
 ```bash
 jldechow@Jacks-MBP SWOT % ssh jldechow@river.emes.unc.edu
@@ -123,7 +123,7 @@ Here, enter your password and you are officially “remotely connected to the cl
 
 ## 3. Using the cluster
 ### 3.1 Basic structure of the GHL cluster
-While the examples in this section are specific to the UNC EMES River cluster, most of these ideas are generically applicable to most cluster systems. First, lets see *where* on the cluster we end up after a successful `ssh` execution.
+While the examples in this section are specific to the UNC EMES River cluster, most of these ideas are generically applicable to other cluster systems. First, lets see *where* on the cluster we end up after a successful `ssh` execution.
 
 ```bash
 Last login: Fri Nov  7 13:14:45 2025 from 152.23.121.91
@@ -160,7 +160,7 @@ jldechow@river:~$ readlink -f ~
 /afs/cas.unc.edu/users/j/l/jldechow
 ```
 
-Here we use command `readlink` to print the value of a `symlink` with the flag `-f` to ensure that if there are nested symlinks, they all print their full path.  
+Here we use command `readlink` to print the value of a `symlink` with the flag `-f` to ensure that if there are nested symlinks, they all print their full path. The important thing to take away here is that no matter where you are on the cluster, you can always return to the home directory with `cd ~`.
 
 ### 3.2 Understanding the available resources
 Let's revisit the splash text printed by the River Cluster when we first `ssh` into the remote machine.
@@ -204,12 +204,15 @@ Memory or RAM (random access memory) is the amount of high speed storage used fo
 
 #### CPU
 Finally, the CPU. The Central Processing Unit is the "brain" or "engine" of a computer. The splash gives us the following information:
+
 `CPU:      96 vcpu | 2 socket | 24 cores-per-socket | 2 threads-per-core`
+
 Lets break this down in a slightly different order than it's given to us:
-`2 socket` - This machine has two physical CPUs. Most consumer computers have 1.
 
-`24 cores-per-socket` A CPU is called a central processing `unit` for a reason. The unit itself has multiple `processors` that are each called a `core`. Since the splash tells us that the server has `24 cores-per-socket`, we know that we have `1 CPU` in each of our `2 sockets` and each of our `1 CPU` has `24 processor cores`. This gives us a total of `48 physical cores`. 
-`96 vcpu` - Historically, a single CPU core could process a single set of instructions at a time. Through a method called `multithreading`, a single physical core can be split into 2,4, or 8 `virtual cores`. On some retail CPUs this is marketed as `hyperthreading`. Given that we have `2 CPU` @ `24 cores-per-socket` and `96 vcpu`, we can assume that the multithreading on this machine is `2x`.
 
+- `2 socket` - This machine has two physical CPUs. Most consumer computers have 1.
+- `24 cores-per-socket` A CPU is called a central processing `unit` for a reason. The unit itself has multiple `processors` that are each called a `core`. Since the splash tells us that the server has `24 cores-per-socket`, we know that we have `1 CPU` in each of our `2 sockets` and each of our `1 CPU` has `24 processor cores`. This gives us a total of `48 physical cores`.
+- `2 threads-per-core` - Historically, a single CPU core could process a single set of instructions at a time. Through a method called `multithreading`, a single physical core can be split into 2,4, or 8 `virtual cores`. On some retail CPUs this is marketed as `hyperthreading`
+- `96 vcpu` - Given that we have `2 CPU` @ `24 cores-per-socket` @ `2 threads-per-core`, this gives us `96 virtual cpus`
 
 Given all of this, in theory a single job on the River cluster could request `512GB` of RAM and `96 CPUs`. This would be very rude though!
