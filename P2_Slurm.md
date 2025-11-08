@@ -35,11 +35,11 @@ Much like the generic command line utilities discussed in P1, slurm has its own 
 | ----------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------ |
 | `sbatch`    | Submit a job script to the queue           | `sbatch myjob.sh`                     | Sends your job script to Slurm to run when resources are available.      |
 | `squeue`    | View the job queue                         | `squeue -u $USER`                     | Shows which jobs are running or waiting (for your user or everyone).     |
-| `scancel`   | Cancel a running or pending job            | `scancel 12345`                       | Stops the job with ID `12345`. Useful for stuck or mistaken jobs.        |
+| `scancel`   | Cancel a running or pending job            | `scancel 12345`                       | Stops the job with ID `12345`                                            |
 | `sinfo`     | View node and partition (queue) status     | `sinfo`                               | Displays what parts of the cluster are available, busy, or down.         |
 | `srun`      | Run a command interactively or in parallel | `srun hostname`                       | Starts a command directly through Slurm (often used inside job scripts). |
 | `sacct`     | View job history and resource usage        | `sacct -j 12345`                      | Shows runtime, CPU, and memory use for a finished job.                   |
 | `module`    | Load software environments                 | `module load julia`                   | Loads software packages or environments available on the cluster.        |
-| `ssh`       | Connect to remote servers or nodes         | `ssh user@clusteredu`                 | Connects securely to the cluster login node (your entry point).          |
+| `ssh`       | Connect to remote servers or nodes         | `ssh user@cluster.edu`                | Connects securely to the cluster login node                              |
 
 Many cluster commands become much more useful when paired with flags, which are options that modify behavior. For example, running `squeue`will show every job on the entire cluster, which often is not very useful.To see only your own jobs, you can add the `-u` flag followed by your username:`squeue -u jldechow`. Here, `-u` means `user`, so this command lists all jobs currently running or waiting that belong to you. Similarly, if you accidentally submit several jobs or lose track of your job IDs, you can cancel all your jobs at once with `scancel -u jldechow`. This tells Slurm to stop every job associated with your username, saving you from hunting down each individual `$JOBID`..
