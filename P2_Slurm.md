@@ -26,6 +26,8 @@ This job script starts with the shebang `#!/bin/bash` that tells the computer we
 `#SBATCH -t 00:10:00`        This gives a the job a time limit of 10 minutes
 `#SBATCH --ntasks=1`         This requests a single CPU core
 
+Assuming everything works, this job should mirror the functionality of typing `echo "Hello from Slurm!"` in the command line.
+
 ## 3. Basic Slurm Commands
 Much like the generic command line utilities discussed in P1, slurm has its own commands that you can use to start, check on, or cancel jobs. Below we will show the most common and useful ones
 
@@ -36,3 +38,5 @@ Much like the generic command line utilities discussed in P1, slurm has its own 
 | `squeue`        | Check the queue and see what jobs are running or pending |
 | `scancel JOBID` | Cancel a queued or running job                           |
 | `sinfo`         | View partitions, node status, and resource availability  |
+
+Some of these commands are more useful with flags. For example, lets say I wanted to check every job I've submitted that is currently running or waiting in the queue. Instead of running `squeue`, which would show every job on the entire cluster, I could run `squeue -u jldechow`. The `-u` flag tells slurm to report all jobs tied to user `jldechow`. Similarly, if I accidently submitted multiple jobs, or even just didn't keep track of the `$JOBID` for all my jobs, I could cancel all my jobs using `scancel -u jldechow`.
