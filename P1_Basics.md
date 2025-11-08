@@ -17,31 +17,18 @@ Separate from these, the interface with the cluster is entirely in the CLI. Ther
 ### 1.3 Basic command line operations
 In your day to day life on an OS with a GUI, things like copy-paste or changing directories is a clicking-based operation. In reality, when you highlight then copy-paste text, your OS is running the CLI operations that correspond to what you’ve clicked. These operations are usually done in a language called *bash*. Below, I will list common bash commands that help with everyday use on the clusters
 
-`cd` - change directory 
-usage: `cd ./documents`
+| **Command** | **Purpose**             | **Example Usage**                                          | **Explanation**                                                                           |
+| ----------- | ----------------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `cd`        | Change directory        | `cd ./documents`                                           | Moves you into another folder (like double-clicking a folder in Finder or File Explorer). |
+| `pwd`       | Print working directory | `pwd`                                                      | Shows the full path of where you are in the file system.                                  |
+| `ls`        | List directory contents | `ls -a`                                                    | Lists all files and folders in the current directory (`-a` shows hidden files too).       |
+| `mv`        | Move or rename files    | `mv file.txt /otherFolder/` <br> `mv file.txt newFile.txt` | Moves a file to another folder, or renames it.                                            |
+| `cp`        | Copy files              | `cp file.txt copy_of_file.txt`                             | Makes a duplicate of a file.                                                              |
+| `mkdir`     | Make a new directory    | `mkdir newFolder`                                          | Creates a new folder.                                                                     |
+| `cat`       | View file contents      | `cat file.txt`                                             | Prints the contents of a file directly to the screen.                                     |
+| `touch`     | Create or update a file | `touch newfile.txt`                                        | Creates a blank file (or updates the timestamp if it already exists).                     |
+| `rm`        | Remove files or folders | `rm file.txt` <br> `rm -r folder/`                         | Deletes files (`rm`) or entire folders (`rm -r`). Use carefully—this cannot be undone!    |
 
-`pwd` - print working directory
-
-`ls` - list directory contents
-usage: 		`ls -a`
-
-`mv` - move or rename files
-usage: 	`mv file.txt /otherFolder/` 		# move `file.txt` to a new directory `./otherFolder/`
-usage: 	`mv file.txt newFile.txt`			# rename `file.txt` to `newFile.txt`
-
-`cp` - 	copy files
-usage: 	`cp file.txt copy_of_files.txt`
-
-`mkdir` - make directory
-usage: 	`mkdir newFolder`
-
-`cat` - concatenate files; list contents of files
-
-`touch` - update file timestamp; make new files
-
-`rm` - remove files or folders
-usage: rm file.txt # delete `file.txt`
-usage: rm -r folder # delete directory `folder` and everything within it
 
 ### 1.4 Example command line interactions
 Below is a example of using these operations on the command line
