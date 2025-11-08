@@ -7,7 +7,7 @@ Cluster typically refers to a remote machine - i.e. *not* your local computer - 
   2. Running on a cluster frees up resources on your local machine to allow you to run visualization scripts, write, etc without impacting the runtime of your programs.
 
 ### 1.2 UNIX basics
-Clusters generally run on an operating system derived from the UNIX family of operating systems. The most widely know UNIX OS is probably MacOS. There are many differences between Windows and UNIX-like operating systems, but the two most applicable to the average user are:
+Clusters generally run on an operating system derived from the UNIX family of operating systems. The most widely know UNIX-like OS is probably MacOS. There are many differences between Windows and UNIX-like operating systems, but the two most applicable to the average user are:
 
 1. UNIX based systems have a native *command line interface* or CLI. On MacOS, this is the *terminal* application. There is not a native CLI on Windows, and instead applications like *PuTTY* add CLI to Windows machines.
 2. When looking at file paths, UNIX systems use a forward slash / to indicate directory level, while Windows uses back slash \ to indicate file paths. This is only an issue if copy-pasting file paths.
