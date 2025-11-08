@@ -1,4 +1,8 @@
 # Linux + Slurm Commands Reference Sheet
+## Help + Manual
+
+Nearly every command accepts `command --help` as a flag. This gives a quick summary of options and usage. Likewise, `man command` opens the full manual entry for a command.
+
 ## Basic Linux Commands
 
 | **Command** | **Purpose**             | **Example Usage**                                        | **Explanation**                                              |
