@@ -23,7 +23,7 @@ ls -l                           #list again
 # Submit the job FROM scratch so $SLURM_SUBMIT_DIR == $tmpdir
 # Pass absolute path to the script we just staged
 sbatch test_add.job test_add.py 5 8
-while squeue -j "$JOBID" -h >/dev/null 2>&1; do sleep 5; done
+sleep 30
 pwd
 cat result.txt
 cp result.txt "$HOME/"
