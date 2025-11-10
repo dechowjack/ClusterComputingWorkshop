@@ -12,3 +12,7 @@ except ValueError:
 
 result = a + b
 print(f"Adding {a} + {b} = {result}")
+
+# Write results
+with open("result.txt", "w") as f:
+    f.write(f"{a} + {b} = {result}\n")

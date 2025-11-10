@@ -13,12 +13,12 @@ mkdir -p "$tmpdir"
 mkdir -p "$HOME/OUT"
 
 # Stage the python file to scratch and show contents
-cd "$tmpdir" # Move to work dir
-pwd             #Print current dir
-ls -l           #List workdir contents
-cp -f "$src_file" "$tmpdir/" # Copy to workdir
-cp -f "$job_file" "$tmpdir/" # copy job file to workdir
-ls -l #list again
+cd "$tmpdir"                    # Move to work dir
+pwd                             #Print current dir
+ls -l                           #List workdir contents
+cp -f "$src_file" "$tmpdir/"    # Copy script to workdir
+cp -f "$job_file" "$tmpdir/"    # Copy job file to workdir
+ls -l                           #list again
 
 # Submit the job FROM scratch so $SLURM_SUBMIT_DIR == $tmpdir
 # Pass absolute path to the script we just staged
