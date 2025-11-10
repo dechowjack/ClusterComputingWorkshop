@@ -21,5 +21,7 @@ ls -l
 # Pass absolute path to the script we just staged
 sbatch "$job_file" "$tmpdir/test_add.py" 5 8 > result.txt
 
+pwd
+cat result.txt
 rm "$tmpdir/test_add.py"
 cp OUT/result.txt "$HOME/OUT/"
