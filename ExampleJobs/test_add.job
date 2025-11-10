@@ -19,6 +19,6 @@ mkdir -p OUT
 #   $1 = absolute path to test_add.py
 #   $2 = first integer
 #   $3 = second integer
-python3 "$1" "$2" "$3" > OUT/result.txt
+python3 "$1" "$2" "$3"
 
 echo "Job done: $SLURM_JOB_NAME ($SLURM_JOB_ID)"
