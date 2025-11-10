@@ -3,8 +3,10 @@
 #SBATCH -p LocalQ          
 #SBATCH -t 00:05:00         
 #SBATCH --ntasks=1         
+#SBATCH -o OUT/test.out
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=jldechow@unc.edu
+#SBATCH --mem 1GB
 
 cd /not_backed_up/jldechow   # Change to working directory
 
