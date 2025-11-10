@@ -22,4 +22,4 @@ ls -l
 sbatch "$job_file" "$tmpdir/test_add.py" 5 8
 
 rm "$tmpdir/test_add.py"
-cp ./OUT/* "$HOME/OUT/"
+cp OUT/result.txt "$HOME/OUT/"
