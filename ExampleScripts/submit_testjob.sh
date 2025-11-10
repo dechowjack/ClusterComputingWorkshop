@@ -20,3 +20,6 @@ ls -l
 # Submit the job FROM scratch so $SLURM_SUBMIT_DIR == $tmpdir
 # Pass absolute path to the script we just staged
 sbatch "$job_file" "$tmpdir/test_add.py" 5 8
+
+rm "$tmpdir/test_add.py"
+cp ./OUT/* "$HOME/OUT/"
