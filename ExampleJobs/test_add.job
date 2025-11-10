@@ -9,7 +9,6 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=jldechow@unc.edu
 
-set -euo pipefail
 set -x
 
 # Ensure we’re in the directory where 'sbatch' was run (the scratch dir)
@@ -21,12 +20,5 @@ mkdir -p OUT
 #   $2 = first integer
 #   $3 = second integer
 python3 "$1" "$2" "$3"
-
-# If your python script writes a result file (e.g., OUT/result.txt), copy it home
-# (Make sure your python script actually creates it!)
-if compgen -G "OUT/*" > /dev/null; then
-  mkdir -p "$HOME/OUT"
-  cp -f OUT/* "$HOME/OUT/"
-fi
 
 echo "Job done: $SLURM_JOB_NAME ($SLURM_JOB_ID)"
