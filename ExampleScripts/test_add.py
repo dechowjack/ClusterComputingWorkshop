@@ -12,10 +12,3 @@ except ValueError:
 
 result = a + b
 print(f"Adding {a} + {b} = {result}")
-
-# Ensure OUT directory exists
-os.makedirs("OUT", exist_ok=True)
-
-# Write result to file
-with open("OUT/result.txt", "w") as f:
-    f.write(f"{a} + {b} = {result}\n")
