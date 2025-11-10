@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH -J test_add_job          
+#SBATCH -p LocalQ          
+#SBATCH -t 00:05:00         
+#SBATCH --ntasks=1         
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=jldechow@unc.edu
+
+cd /not_backed_up/jldechow   # Change to working directory
+
+mkdir -p OUT
+
+SCRATCH="${SLURM_TMPDIR:-${TMPDIR:-${LOCAL_TMPDIR:-/tmp}}}"
+
+echo "Running on host $(hostname)"    | tee -a OUT/test.out
+echo "In directory $(pwd)"            | tee -a OUT/test.out
+echo "with shell $SHELL"              | tee -a OUT/test.out
+echo "Scratch is $SCRATCH"            | tee -a OUT/test.out
+
+python3 ~/ClusterComputingWorkshop/ExampleScripts/test_add.py 8 5
+cp OUT/result.txt ~
+cp OUT/test.out ~
+echo "Job done"
