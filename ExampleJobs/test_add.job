@@ -8,15 +8,27 @@
 #SBATCH --mail-user=jldechow@unc.edu
 #SBATCH --mem 1GB
 
-src_file = ~/ClusterComputingWorkshop/ExampleScripts/test_add.py
-tmpdir = /not_backed_up/jldechow
+set -x  # helpful debug: prints commands as they run
 
-cd $(tmpdir)
-cp $(src_file) $(tmpdir)
+# Always work from the directory where you ran 'sbatch'
+cd "$SLURM_SUBMIT_DIR"
+mkdir -p OUT
 
-work_file = $(tmpdir)/test_add.py
+# Paths 
+src_file="$HOME/ClusterComputingWorkshop/ExampleScripts/test_add.py"
 
-python3 $(work_file) 8 5
-cp OUT/result.txt ~
-cp OUT/test.out ~
-echo "Job done"
+# Use node-local scratch if the cluster provides it; otherwise fallback
+tmpdir="${LOCAL_TMPDIR:-/not_backed_up/$USER/$SLURM_JOB_ID}"
+mkdir -p "$tmpdir"
+
+# Stage the script to scratch
+cp "$src_file" "$tmpdir/"
+work_file="$tmpdir/test_add.py"
+
+# Run the script
+python3 "$work_file" 8 5 
+
+# Bring results back to the submit directory
+cp "$tmpdir/result.txt" "OUT/result_${SLURM_JOB_ID}.txt"
+
+echo "Job done: $SLURM_JOB_NAME ($SLURM_JOB_ID)"
