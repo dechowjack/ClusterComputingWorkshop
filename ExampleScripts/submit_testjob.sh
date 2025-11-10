@@ -26,7 +26,5 @@ sbatch test_add.job test_add.py 5 8
 
 pwd
 cat result.txt
-rm "$tmpdir/test_add.py"
-
 cp OUT/result.txt "$HOME/OUT/"
 cp result.txt "$HOME/"
