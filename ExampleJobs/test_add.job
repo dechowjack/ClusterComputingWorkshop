@@ -11,10 +11,6 @@
 
 set -x
 
-# Ensure we’re in the directory where 'sbatch' was run (the scratch dir)
-cd "$SLURM_SUBMIT_DIR"
-mkdir -p OUT
-
 # Args:
 #   $1 = absolute path to test_add.py
 #   $2 = first integer
