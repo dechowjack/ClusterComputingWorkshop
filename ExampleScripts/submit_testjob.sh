@@ -27,3 +27,6 @@ sleep 30
 pwd
 cat result.txt
 cp result.txt "$HOME/"
+rm result.txt
+rm test_add.job
+rm test_add.py
