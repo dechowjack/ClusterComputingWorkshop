@@ -8,18 +8,15 @@
 #SBATCH --mail-user=jldechow@unc.edu
 #SBATCH --mem 1GB
 
-cd /not_backed_up/jldechow   # Change to working directory
+src_file = ~/ClusterComputingWorkshop/ExampleScripts/test_add.py
+tmpdir = /not_backed_up/jldechow
 
-mkdir -p OUT
+cd $(tmpdir)
+cp $(src_file) $(tmpdir)
 
-SCRATCH="${SLURM_TMPDIR:-${TMPDIR:-${LOCAL_TMPDIR:-/tmp}}}"
+work_file = $(tmpdir)/test_add.py
 
-echo "Running on host $(hostname)"    | tee -a OUT/test.out
-echo "In directory $(pwd)"            | tee -a OUT/test.out
-echo "with shell $SHELL"              | tee -a OUT/test.out
-echo "Scratch is $SCRATCH"            | tee -a OUT/test.out
-
-python3 ~/ClusterComputingWorkshop/ExampleScripts/test_add.py 8 5
+python3 $(work_file) 8 5
 cp OUT/result.txt ~
 cp OUT/test.out ~
 echo "Job done"
