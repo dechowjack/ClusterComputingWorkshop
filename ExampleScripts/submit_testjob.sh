@@ -2,10 +2,7 @@
 # Helper script to deal with file permission issues
 # Must run from $HOME directory (or adjust HOME paths below)
 
-set -euo pipefail
-
 # Absolute scratch path (either the real path, or use the workdir symlink)
-
 tmpdir="/not_backed_up/jldechow"            # real path behind the symlink
 
 src_file="$HOME/ClusterComputingWorkshop/ExampleScripts/test_add.py"
