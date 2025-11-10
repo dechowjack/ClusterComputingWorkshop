@@ -18,17 +18,15 @@ mkdir -p OUT
 src_file="$HOME/ClusterComputingWorkshop/ExampleScripts/test_add.py"
 
 # Use node-local scratch if the cluster provides it; otherwise fallback
-tmpdir="${LOCAL_TMPDIR:-/not_backed_up/$USER/$SLURM_JOB_ID}"
-mkdir -p "$tmpdir"
 
 # Stage the script to scratch
-cp "$src_file" "$tmpdir/"
+cp "$src_file" "$SLURM_SUBMIT_DIR/"
 work_file="$tmpdir/test_add.py"
 
 # Run the script
 python3 "$work_file" 8 5 
 
 # Bring results back to the submit directory
-cp "$tmpdir/result.txt" "OUT/result_${SLURM_JOB_ID}.txt"
+cp $SLURM_SUBMIT_DIR/OUT/* "$HOME/OUT/"
 
 echo "Job done: $SLURM_JOB_NAME ($SLURM_JOB_ID)"
