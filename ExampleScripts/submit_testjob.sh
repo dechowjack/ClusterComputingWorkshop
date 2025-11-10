@@ -1,17 +1,25 @@
 #!/bin/bash
-
 # Helper script to deal with file permission issues
-# Must run from $HOME directory
+# Must run from $HOME directory (or adjust HOME paths below)
 
-# Assign paths
-tmpdir="not_backed_up/jldechow/"
+set -euo pipefail
+
+# Absolute scratch path (either the real path, or use the workdir symlink)
+
+tmpdir="/not_backed_up/jldechow"            # real path behind the symlink
+
 src_file="$HOME/ClusterComputingWorkshop/ExampleScripts/test_add.py"
+job_file="$HOME/ClusterComputingWorkshop/ExampleJobs/test_add.job"
 
-# Move files
-cp $src_file $tmpdir
-cd $tmpdir
-ls
+# Make sure target dirs exist
+mkdir -p "$tmpdir"
+mkdir -p "$HOME/OUT"
 
-# Run job script
-sbatch "$HOME/ClusterComputingWorkshop/ExampleJobs/test_add.job" test_add.py 5 8
+# Stage the python file to scratch and show contents
+cp -f "$src_file" "$tmpdir/"
+cd "$tmpdir"
+ls -l
 
+# Submit the job FROM scratch so $SLURM_SUBMIT_DIR == $tmpdir
+# Pass absolute path to the script we just staged
+sbatch "$job_file" "$tmpdir/test_add.py" 5 8

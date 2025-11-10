@@ -1,17 +1,32 @@
 #!/bin/bash
-#SBATCH -J test_add_job          
-#SBATCH -p LocalQ          
-#SBATCH -t 00:05:00         
-#SBATCH --ntasks=1         
-#SBATCH -o OUT/test.out
+#SBATCH -J test_add_job
+#SBATCH -p LocalQ
+#SBATCH -t 00:05:00
+#SBATCH --ntasks=1
+#SBATCH --mem=1G
+#SBATCH -o OUT/%x_%j.out
+#SBATCH -e OUT/%x_%j.err
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=jldechow@unc.edu
-#SBATCH --mem 1GB
 
-set -x  # helpful debug: prints commands as they run
+set -euo pipefail
+set -x
 
-# Run the script
-python3 "$1" $2 $3
+# Ensure we’re in the directory where 'sbatch' was run (the scratch dir)
+cd "$SLURM_SUBMIT_DIR"
+mkdir -p OUT
 
-# Bring results back to the submit directory
-cp ./OUT/* "$HOME/OUT/"
+# Args:
+#   $1 = absolute path to test_add.py
+#   $2 = first integer
+#   $3 = second integer
+python3 "$1" "$2" "$3"
+
+# If your python script writes a result file (e.g., OUT/result.txt), copy it home
+# (Make sure your python script actually creates it!)
+if compgen -G "OUT/*" > /dev/null; then
+  mkdir -p "$HOME/OUT"
+  cp -f OUT/* "$HOME/OUT/"
+fi
+
+echo "Job done: $SLURM_JOB_NAME ($SLURM_JOB_ID)"
