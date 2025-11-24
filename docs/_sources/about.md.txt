@@ -2,8 +2,7 @@
 
 This workshop provides a set of written guides, tutorials, and example scripts designed to introduce researchers to working effectively on a remote compute cluster. The materials were originally developed for the Pavelsky Global Hydrology Lab at UNC Chapel Hill, where new group members often needed a structured onboarding path for using the EMES **River** cluster. However, the content is broadly applicable to any Linux-based HPC system that uses Slurm.
 
-The workshop is aimed at researchers with a wide range of technical experience. Many sections assume no prior exposure to high-performance computing or remote Unix environments. The goal is to build confidence and practical skill—moving users from “I can run scripts on my laptop” to “I can reliably run jobs on a shared cluster.”
-
+The workshop is aimed at researchers with a wide range of technical experience. Many sections assume no prior exposure to high-performance computing or remote Unix environments. 
 ---
 
 ## What this workshop contains
@@ -53,9 +52,7 @@ This workshop was designed with three core goals:
 This workshop continues to evolve. Planned additions include:
 
 - Expanded modules on multi-step workflows, job arrays, environment modules, and Python virtual environments  
-- More detailed examples using common scientific computing tools (MATLAB, Python, Julia)  
 - Additional reference sheets tailored to specific research contexts  
-- Supplemental videos or live demo materials  
 
 Contributions, suggestions, or issue reports are always welcome through the GitHub repository.
 
