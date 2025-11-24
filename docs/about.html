@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>About the Cluster Computing Workshop &#8212; Cluster Computing Workshop 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="UNC Cluster Computing Workshop - Basics" href="P1_Basics.html" />
+    <link rel="prev" title="Cluster Computing Workshop Documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="about-the-cluster-computing-workshop">
+<h1>About the Cluster Computing Workshop<a class="headerlink" href="#about-the-cluster-computing-workshop" title="Link to this heading">¶</a></h1>
+<p>This workshop provides a set of written guides, tutorials, and example scripts designed to introduce researchers to working effectively on a remote compute cluster. The materials were originally developed for the Pavelsky Global Hydrology Lab at UNC Chapel Hill, where new group members often needed a structured onboarding path for using the EMES <strong>River</strong> cluster. However, the content is broadly applicable to any Linux-based HPC system that uses Slurm.</p>
+<p>The workshop is aimed at researchers with a wide range of technical experience. Many sections assume no prior exposure to high-performance computing or remote Unix environments. The goal is to build confidence and practical skill—moving users from “I can run scripts on my laptop” to “I can reliably run jobs on a shared cluster.”</p>
+<hr class="docutils" />
+<section id="what-this-workshop-contains">
+<h2>What this workshop contains<a class="headerlink" href="#what-this-workshop-contains" title="Link to this heading">¶</a></h2>
+<p>The repository includes:</p>
+<section id="written-guides">
+<h3><strong>Written Guides</strong><a class="headerlink" href="#written-guides" title="Link to this heading">¶</a></h3>
+<p>The primary learning modules are provided as Markdown documents, each focused on a core skill:</p>
+<ul class="simple">
+<li><p><strong>P1_Basics.md</strong><br />
+An introduction to command-line fundamentals, Unix-based operating systems, and connecting to a remote machine with <code class="docutils literal notranslate"><span class="pre">ssh</span></code>.</p></li>
+<li><p><strong>P2_Slurm.md</strong><br />
+A beginner-friendly overview of the Slurm job management system: partitions, job submission, monitoring, and interpreting job states.</p></li>
+<li><p><strong>P3 and beyond</strong><br />
+Additional modules follow the naming pattern <code class="docutils literal notranslate"><span class="pre">P#_Topic.md</span></code>, introducing more advanced cluster workflows as the workshop grows.</p></li>
+</ul>
+</section>
+<section id="reference-sheets">
+<h3><strong>Reference Sheets</strong><a class="headerlink" href="#reference-sheets" title="Link to this heading">¶</a></h3>
+<p>Concise cheat-sheets summarize commonly used commands, flags, Slurm directives, and job status codes. These are intended as quick look-up aids during day-to-day work.</p>
+</section>
+<section id="example-scripts">
+<h3><strong>Example Scripts</strong><a class="headerlink" href="#example-scripts" title="Link to this heading">¶</a></h3>
+<p>The repository includes example shell scripts and job files demonstrating how to structure tasks on a cluster. These are designed as templates readers can adapt to their own workflows.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="goals-and-design-philosophy">
+<h2>Goals and design philosophy<a class="headerlink" href="#goals-and-design-philosophy" title="Link to this heading">¶</a></h2>
+<p>This workshop was designed with three core goals:</p>
+<ol class="arabic simple">
+<li><p><strong>Accessibility</strong><br />
+New cluster users often feel overwhelmed by unfamiliar commands, scheduler terminology, and strict filesystem rules. The guides emphasize clarity, practical examples, and step-by-step instructions.</p></li>
+<li><p><strong>Transferability</strong><br />
+While the guides include notes tailored to the EMES River cluster at UNC, every effort is made to separate general HPC best practices from system-specific details. Users from other institutions should find the materials broadly relevant.</p></li>
+<li><p><strong>Reproducibility</strong><br />
+Using a cluster effectively is a foundational part of building reproducible scientific workflows. The workshop encourages version control, organized project structure, and consistent job scripting practices.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="future-development">
+<h2>Future Development<a class="headerlink" href="#future-development" title="Link to this heading">¶</a></h2>
+<p>This workshop continues to evolve. Planned additions include:</p>
+<ul class="simple">
+<li><p>Expanded modules on multi-step workflows, job arrays, environment modules, and Python virtual environments</p></li>
+<li><p>More detailed examples using common scientific computing tools (MATLAB, Python, Julia)</p></li>
+<li><p>Additional reference sheets tailored to specific research contexts</p></li>
+<li><p>Supplemental videos or live demo materials</p></li>
+</ul>
+<p>Contributions, suggestions, or issue reports are always welcome through the GitHub repository.</p>
+</section>
+<hr class="docutils" />
+<section id="citation-and-contact">
+<h2>Citation and Contact<a class="headerlink" href="#citation-and-contact" title="Link to this heading">¶</a></h2>
+<p>If you wish to reference or reuse these materials in your lab or classroom, you may cite the workshop as:</p>
+<blockquote>
+<div><p><em>Cluster Computing Workshop, developed by Jack Dechow for the Pavelsky Global Hydrology Lab, UNC Chapel Hill.</em><br />
+Repository: <a class="reference external" href="https://github.com/dechowjack/ClusterComputingWorkshop">https://github.com/dechowjack/ClusterComputingWorkshop</a><br />
+Website: <a class="reference external" href="https://dechowjack.github.io/ClusterComputingWorkshop/">https://dechowjack.github.io/ClusterComputingWorkshop/</a></p>
+</div></blockquote>
+<p>For questions or suggestions, feel free to open an issue or reach out to Jack (jldechow&#64;unc.edu)</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Cluster Computing Workshop</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">About the Cluster Computing Workshop</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workshop Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="P1_Basics.html">UNC Cluster Computing Workshop - Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="P2_Slurm.html">UNC Cluster Computing Workshop - Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="P3_ComplexJobs.html">UNC Cluster Computing Workshop - Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GitSetup.html">UNC Cluster Computing Workshop - Git Setup Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference Sheets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_Commands.html">Linux + Slurm Commands Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_Flags.html">Linux + Slurm Flags Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_SBATCH_Directives.html">Slurm SBATCH Directive Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_SlurmJobStatus.html">Slurm Job Status Reference Sheet</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Cluster Computing Workshop Documentation</a></li>
+      <li>Next: <a href="P1_Basics.html" title="next chapter">UNC Cluster Computing Workshop - Basics</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Jack Dechow.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/About.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

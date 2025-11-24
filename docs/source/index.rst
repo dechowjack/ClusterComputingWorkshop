@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Cluster Computing Workshop documentation
+Cluster Computing Workshop Documentation
 ========================================
 
 Welcome to the documentation site for the Cluster Computing Workshop.
@@ -12,8 +12,14 @@ Slurm-based compute cluster, from basic navigation to more advanced
 job workflows.
 
 .. toctree::
+   :maxdepth: 1
+   :caption: Overview
+
+   About
+
+.. toctree::
    :maxdepth: 2
-   :caption: Workshop guides
+   :caption: Workshop Guides
 
    P1_Basics
    P2_Slurm
@@ -22,7 +28,7 @@ job workflows.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Reference sheets
+   :caption: Reference Sheets
 
    refs/REF_Commands
    refs/REF_Flags

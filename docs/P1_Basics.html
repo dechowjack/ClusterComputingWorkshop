@@ -12,6 +12,7 @@
     <script src="_static/documentation_options.js?v=2709fde1"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="UNC Cluster Computing Workshop - Slurm" href="P2_Slurm.html" />
@@ -299,7 +300,7 @@ jldechow@river:~$<span class="w"> </span>
 <section id="moving-files-between-your-local-machine-and-the-cluster">
 <h3>3.3 Moving files between your local machine and the cluster<a class="headerlink" href="#moving-files-between-your-local-machine-and-the-cluster" title="Link to this heading">¶</a></h3>
 <p>Having access to your files on the cluster, and pulling down results to your local machine are important steps to actually getting use out of a cluster. The standard way of moving files is with the <code class="docutils literal notranslate"><span class="pre">scp</span></code> command. In the example below, I’ll demonstrate moving files from the <code class="docutils literal notranslate"><span class="pre">Data/SWOT/</span></code> folder on my local machine to the <code class="docutils literal notranslate"><span class="pre">$HOME/public/</span></code> folder on my cluster account.</p>
-<p>scp -r /Users/jldechow/Data/SWOT/test.txt jldechow&#64;river.emes.unc.edu:/afs/cas.unc.edu/users/j/l/jldechow/public</p>
+<p><code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">-r</span> <span class="pre">/Users/jldechow/Data/SWOT/test.txt</span> <span class="pre">jldechow&#64;river.emes.unc.edu:/afs/cas.unc.edu/users/j/l/jldechow/public</span></code></p>
 </section>
 </section>
 </section>
@@ -340,6 +341,14 @@ jldechow@river:~$<span class="w"> </span>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="P2_Slurm.html">UNC Cluster Computing Workshop - Slurm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="P3_ComplexJobs.html">UNC Cluster Computing Workshop - Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GitSetup.html">UNC Cluster Computing Workshop - Git Setup Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference sheets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_Commands.html">Linux + Slurm Commands Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_Flags.html">Linux + Slurm Flags Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_SBATCH_Directives.html">Slurm SBATCH Directive Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_SlurmJobStatus.html">Slurm Job Status Reference Sheet</a></li>
 </ul>
 
 <div class="relations">

@@ -220,4 +220,4 @@ Given all of this, in theory a single job on the River cluster could request `51
 ### 3.3 Moving files between your local machine and the cluster
 Having access to your files on the cluster, and pulling down results to your local machine are important steps to actually getting use out of a cluster. The standard way of moving files is with the `scp` command. In the example below, I'll demonstrate moving files from the `Data/SWOT/` folder on my local machine to the `$HOME/public/` folder on my cluster account.
 
-scp -r /Users/jldechow/Data/SWOT/test.txt jldechow@river.emes.unc.edu:/afs/cas.unc.edu/users/j/l/jldechow/public
+`scp -r /Users/jldechow/Data/SWOT/test.txt jldechow@river.emes.unc.edu:/afs/cas.unc.edu/users/j/l/jldechow/public`
