@@ -15,7 +15,7 @@ job workflows.
    :maxdepth: 1
    :caption: Overview
 
-   About
+   about
 
 .. toctree::
    :maxdepth: 2
