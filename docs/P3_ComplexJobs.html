@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>UNC Cluster Computing Workshop - Slurm &#8212; Cluster Computing Workshop 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="UNC Cluster Computing Workshop - Slurm" href="P2_Slurm.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="unc-cluster-computing-workshop-slurm">
+<h1>UNC Cluster Computing Workshop - Slurm<a class="headerlink" href="#unc-cluster-computing-workshop-slurm" title="Link to this heading">¶</a></h1>
+<section id="introduction">
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>The examples shown in <code class="docutils literal notranslate"><span class="pre">P2_Slurm</span></code> are simple jobs that only use basic UNIX commands. However, cluster computing is really about utilizing the large amount of compute resources to run complex or computationally expensive programs. In this section, we will go through how to run more complex jobs.</p>
+<section id="running-software-on-the-command-line">
+<h3>1.1 Running software on the command line<a class="headerlink" href="#running-software-on-the-command-line" title="Link to this heading">¶</a></h3>
+<p>When you are in the command line environment, you can’t just call a file name and have it run. For example, assume we have a <code class="docutils literal notranslate"><span class="pre">python</span></code> script named <code class="docutils literal notranslate"><span class="pre">test_add.py</span></code>. This file is available in the main repo, and is a simple python script that takes two inputs <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> and then adds the results and prints them to a file <code class="docutils literal notranslate"><span class="pre">result.txt</span></code>. Below is the code for <code class="docutils literal notranslate"><span class="pre">test_add.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Read input arguments </span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: both arguments must be integers.&quot;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Adding </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Write results</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;result.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Hopefully, the comments in the script are self-explanatory. Now, let’s try to run it. If I run <code class="docutils literal notranslate"><span class="pre">test_add.py</span></code> on the command line I get the following error:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jldechow@river:~/scratch$<span class="w"> </span>test_add.py<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">8</span>
+test_add.py:<span class="w"> </span><span class="nb">command</span><span class="w"> </span>not<span class="w"> </span>found
+</pre></div>
+</div>
+<p>The error <code class="docutils literal notranslate"><span class="pre">test_add.py:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> is due to the fact the system interprets <code class="docutils literal notranslate"><span class="pre">test_add.py</span></code> as a <code class="docutils literal notranslate"><span class="pre">bash</span></code> command, not a <code class="docutils literal notranslate"><span class="pre">python</span></code> command. To fix this, we instead run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jldechow@river:~/scratch$<span class="w"> </span>python3<span class="w"> </span>test_add.py<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">8</span>
+Adding<span class="w"> </span><span class="m">5</span><span class="w"> </span>+<span class="w"> </span><span class="nv">8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">13</span>
+</pre></div>
+</div>
+<p>Here the <code class="docutils literal notranslate"><span class="pre">python3</span></code> command in the <code class="docutils literal notranslate"><span class="pre">bash</span></code> command line is similar to the <code class="docutils literal notranslate"><span class="pre">shebang</span></code> discussed earlier. In spoken language, it goes like this: using the command <code class="docutils literal notranslate"><span class="pre">python3</span></code>, the <code class="docutils literal notranslate"><span class="pre">bash</span></code> terminal expects the next input <code class="docutils literal notranslate"><span class="pre">test_add.py</span></code> to be a <code class="docutils literal notranslate"><span class="pre">python</span></code> script. If this script didn’t require anymore arguments, that would just run as is. Since <code class="docutils literal notranslate"><span class="pre">test_add.py</span></code> expects two more arguments (the intergers we will add together), we give those two arguments after we call the script itself. The <code class="docutils literal notranslate"><span class="pre">python</span></code> script printed to output to the command line, as well as wrote to a file <code class="docutils literal notranslate"><span class="pre">result.txt</span></code> in the folder <code class="docutils literal notranslate"><span class="pre">OUT/</span></code>. Let’s check that out.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jldechow@river:~/scratch$<span class="w"> </span>python3<span class="w"> </span>test_add.py<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">8</span>
+Adding<span class="w"> </span><span class="m">5</span><span class="w"> </span>+<span class="w"> </span><span class="nv">8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">13</span>
+jldechow@river:~/scratch$<span class="w"> </span>ls
+OUT<span class="w">  </span>test_add.py
+jldechow@river:~/scratch$<span class="w"> </span>ls<span class="w"> </span>OUT/
+result.txt
+jldechow@river:~/scratch$<span class="w"> </span>cat<span class="w"> </span>OUT/result.txt
+<span class="m">5</span><span class="w"> </span>+<span class="w"> </span><span class="nv">8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">13</span>
+jldechow@river:~/scratch$<span class="w"> </span>
+</pre></div>
+</div>
+<p>Since we are running the in my scratch directory, the script made the <code class="docutils literal notranslate"><span class="pre">OUT/</span></code> directory inside the <code class="docutils literal notranslate"><span class="pre">scratch</span></code> directory. If we wanted out script to write to a different output folder, i.e. <code class="docutils literal notranslate"><span class="pre">~/OUT/</span></code>, we would need to specify that explicitly. When running in the command line environment, folder creation and output write is relatively to the folder you are CURRENTLY in when you execute scripts.</p>
+</section>
+<section id="running-software-on-the-head-node">
+<h3>1.2 Running software on the head node<a class="headerlink" href="#running-software-on-the-head-node" title="Link to this heading">¶</a></h3>
+<p>In the previous example, when we ran <code class="docutils literal notranslate"><span class="pre">test_add.py</span></code> from the command line we didn’t use <code class="docutils literal notranslate"><span class="pre">slurm</span></code> to request any resources. This is called running on the <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">node</span></code>. Normally, you would only want to do this for a very small/simple job that doesn’t require many resources. The <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">node</span></code> refers to the (usually) small amount of resources <code class="docutils literal notranslate"><span class="pre">slurm</span></code> has allocated to handle the <code class="docutils literal notranslate"><span class="pre">overhead</span></code> of running the entire server/cluster. So, the <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">node</span></code> has a very small amount of resources available to it, and using them directly impacts the performance of the cluster for all users.</p>
+</section>
+<section id="running-software-in-job-scripts">
+<h3>1.3 Running software in job scripts<a class="headerlink" href="#running-software-in-job-scripts" title="Link to this heading">¶</a></h3>
+<p>To avoid running on the head node, we instead will run software through job scripts. Normally, you would call a script/program directly through a job script. This is not true on the <code class="docutils literal notranslate"><span class="pre">River</span></code> cluster currently due to file permission setup. Instead, we are going to do it in two stages: First, with a job submission script, and the actual job script second. Let’s start with the submission script. You can find this in <code class="docutils literal notranslate"><span class="pre">ExampleScripts/submit_testjob.sh</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Helper script to deal with file permission issues</span>
+<span class="c1"># Must run from $HOME directory (or adjust HOME paths below)</span>
+
+<span class="c1"># Absolute scratch path (either the real path, or use the workdir symlink)</span>
+<span class="nv">tmpdir</span><span class="o">=</span><span class="s2">&quot;/not_backed_up/jldechow&quot;</span><span class="w">            </span><span class="c1"># real path behind the symlink</span>
+
+<span class="nv">src_file</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/ClusterComputingWorkshop/ExampleScripts/test_add.py&quot;</span>
+<span class="nv">job_file</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/ClusterComputingWorkshop/ExampleJobs/test_add.job&quot;</span>
+
+<span class="c1"># Make sure target dirs exist</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$tmpdir</span><span class="s2">&quot;</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/OUT&quot;</span>
+
+<span class="c1"># Stage the python file to scratch and show contents</span>
+<span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$tmpdir</span><span class="s2">&quot;</span><span class="w">                    </span><span class="c1"># Move to work dir</span>
+<span class="nb">pwd</span><span class="w">                             </span><span class="c1">#Print current dir</span>
+ls<span class="w"> </span>-l<span class="w">                           </span><span class="c1">#List workdir contents</span>
+cp<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$src_file</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$tmpdir</span><span class="s2">/&quot;</span><span class="w">    </span><span class="c1"># Copy script to workdir</span>
+cp<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$job_file</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$tmpdir</span><span class="s2">/&quot;</span><span class="w">    </span><span class="c1"># Copy job file to workdir</span>
+ls<span class="w"> </span>-l<span class="w">                           </span><span class="c1">#list again</span>
+
+<span class="c1"># Submit the job FROM scratch so $SLURM_SUBMIT_DIR == $tmpdir</span>
+<span class="c1"># Pass absolute path to the script we just staged</span>
+sbatch<span class="w"> </span>test_add.job<span class="w"> </span>test_add.py<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">8</span>
+sleep<span class="w"> </span><span class="m">30</span>
+<span class="nb">pwd</span>
+cat<span class="w"> </span>result.txt
+cp<span class="w"> </span>result.txt<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/&quot;</span>
+rm<span class="w"> </span>result.txt
+rm<span class="w"> </span>test_add.job
+rm<span class="w"> </span>test_add.py
+</pre></div>
+</div>
+<p>Again, hopefully the comments in this script are self explanatory. But in short, we run this script to avoid the issue with permissions in <code class="docutils literal notranslate"><span class="pre">slurm</span></code>. All of the moving and copying happens in the <code class="docutils literal notranslate"><span class="pre">shell</span></code> script as opposed to the job script. First, we copy all the files to our working directory <code class="docutils literal notranslate"><span class="pre">not_backed_up/jldechow</span></code>. Then, we run the actual job script with <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">test_add.job</span> <span class="pre">test_add.py</span> <span class="pre">5</span> <span class="pre">8</span></code>. Here, the first argument <code class="docutils literal notranslate"><span class="pre">test_add.job</span></code> is the name of the job script. The enxt three arguements <code class="docutils literal notranslate"><span class="pre">test_add.py</span></code> <code class="docutils literal notranslate"><span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">8</span></code> are inputs to the job script. Finally, we copy of output of the job script to our home directory, and remove the files we copied to the working directory. Let’s take a look at the job script now:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -J test_add_job</span>
+<span class="c1">#SBATCH -p LocalQ</span>
+<span class="c1">#SBATCH -t 00:05:00</span>
+<span class="c1">#SBATCH --ntasks=1</span>
+<span class="c1">#SBATCH --mem=1G</span>
+<span class="c1">#SBATCH -o OUT/%x_%j.out</span>
+<span class="c1">#SBATCH -e OUT/%x_%j.err</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END,FAIL</span>
+<span class="c1">#SBATCH --mail-user=jldechow@unc.edu</span>
+
+<span class="nb">set</span><span class="w"> </span>-x
+
+<span class="c1"># Args:</span>
+<span class="c1">#   $1 = absolute path to test_add.py</span>
+<span class="c1">#   $2 = first integer</span>
+<span class="c1">#   $3 = second integer</span>
+python3<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$3</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>result.txt
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Job done: </span><span class="nv">$SLURM_JOB_NAME</span><span class="s2"> (</span><span class="nv">$SLURM_JOB_ID</span><span class="s2">)&quot;</span>
+</pre></div>
+</div>
+<p>The first 10 lines of this script are the <code class="docutils literal notranslate"><span class="pre">shebang</span></code> followed by the <code class="docutils literal notranslate"><span class="pre">slurm</span> <span class="pre">directives</span></code>. The next line is <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-x</span></code> which is a <code class="docutils literal notranslate"><span class="pre">bash</span></code> debugging flag that writes all following inputs/outputs to the output file <code class="docutils literal notranslate"><span class="pre">OUT/%x_%j.out</span></code>. Next, we run our python script with <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">&quot;$1&quot;</span> <span class="pre">&quot;$2&quot;</span> <span class="pre">&quot;$3&quot;</span> <span class="pre">&gt;</span> <span class="pre">result.txt</span></code>. Thhis does the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">python3</span></code>				: run this code with <code class="docutils literal notranslate"><span class="pre">python3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;$1&quot;</span> <span class="pre">&quot;$2&quot;</span> <span class="pre">&quot;$3&quot;</span></code>		: use the first three input arguments</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">result.txt</span></code>		: write the outputs to the file <code class="docutils literal notranslate"><span class="pre">results.txt</span></code></p></li>
+</ul>
+<p>Given that our three inputs are <code class="docutils literal notranslate"><span class="pre">test_add.py</span></code> <code class="docutils literal notranslate"><span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">8</span></code>, this line really looks like:</p>
+<p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">test_add.py</span> <span class="pre">5=</span> <span class="pre">8</span> <span class="pre">&gt;</span> <span class="pre">result.txt</span></code></p>
+<p>Which tells the cluster to run <code class="docutils literal notranslate"><span class="pre">test_add.py</span></code> with inputs <code class="docutils literal notranslate"><span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">8</span></code>, which will add them together.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Cluster Computing Workshop</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Workshop guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="P1_Basics.html">UNC Cluster Computing Workshop - Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="P2_Slurm.html">UNC Cluster Computing Workshop - Slurm</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">UNC Cluster Computing Workshop - Slurm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">1. Introduction</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="P2_Slurm.html" title="previous chapter">UNC Cluster Computing Workshop - Slurm</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Jack Dechow.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/P3_ComplexJobs.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

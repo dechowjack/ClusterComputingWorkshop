@@ -3,3 +3,8 @@
 .Rhistory
 test_scripts/
 .asv
+.venv/
+__pycache__/
+*.pyc
+docs/.doctrees/
+docs/.buildinfo
