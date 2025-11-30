@@ -55,7 +55,6 @@ This workshop continues to evolve. Planned additions include:
 - Expanded modules on multi-step workflows, job arrays, environment modules, and Python virtual environments  
 - More detailed examples using common scientific computing tools (MATLAB, Python, Julia)  
 - Additional reference sheets tailored to specific research contexts  
-- Supplemental videos or live demo materials  
 
 Contributions, suggestions, or issue reports are always welcome through the GitHub repository.
 
