@@ -1,4 +1,4 @@
-# UNC Cluster Computing Workshop - Slurm
+# UNC CCW - Slurm
 ## 1. What is SLURM?
 The `Simple Linux Utility for Resource Management` or `Slurm` for short, is a job scheduling software used on HPC clusters. The primary job of Slurm is to manage and allocate resources between many users. It decides when jobs start, allocates the correct resources for a job, and tracks resources to make sure every job uses distinct GPUs and CPUs.
 
