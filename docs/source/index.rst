@@ -34,3 +34,4 @@ job workflows.
    refs/REF_Flags
    refs/REF_SBATCH_Directives
    refs/REF_SlurmJobStatus
+   refs/REF_ExitCodes
