@@ -1,50 +1,115 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en" data-content_root="./">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About the Cluster Computing Workshop &mdash; Cluster Computing Workshop 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
-    <title>About the Cluster Computing Workshop &#8212; Cluster Computing Workshop 0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
-    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
-    <script src="_static/documentation_options.js?v=2709fde1"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="#" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="UNC Cluster Computing Workshop - Basics" href="P1_Basics.html" />
-    <link rel="prev" title="Cluster Computing Workshop Documentation" href="index.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
+    <link rel="next" title="Workshop P1 - Cluster Computing Basics" href="P1_Basics.html" />
+    <link rel="prev" title="Cluster Computing Workshop Documentation" href="index.html" /> 
+</head>
 
-  
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
           
+          
+          <a href="index.html" class="icon icon-home">
+            Cluster Computing Workshop
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">About the Cluster Computing Workshop</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-workshop-is-aimed-at-researchers-with-a-wide-range-of-technical-experience-many-sections-assume-no-prior-exposure-to-high-performance-computing-or-remote-unix-environments">The workshop is aimed at researchers with a wide range of technical experience. Many sections assume no prior exposure to high-performance computing or remote Unix environments.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-this-workshop-contains">What this workshop contains</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#written-guides"><strong>Written Guides</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reference-sheets"><strong>Reference Sheets</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-scripts"><strong>Example Scripts</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#goals-and-design-philosophy">Goals and design philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#future-development">Future Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#citation-and-contact">Citation and Contact</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workshop Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="P1_Basics.html">Workshop P1 - Cluster Computing Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="P2_Slurm.html">Workshop P2 - Slurm Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="P3_ComplexJobs.html">Workshop P3 - Complex Jobs in Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GitSetup.html">UNC Cluster Computing Workshop - Git Setup Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference Sheets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_Commands.html">Linux + Slurm Commands Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_Flags.html">Linux + Slurm Flags Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_SBATCH_Directives.html">Slurm SBATCH Directive Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_SlurmJobStatus.html">Slurm Job Status Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_ExitCodes.html">Slurm Exit Code Reference Sheet</a></li>
+</ul>
 
-          <div class="body" role="main">
-            
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Cluster Computing Workshop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">About the Cluster Computing Workshop</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/about.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="about-the-cluster-computing-workshop">
-<h1>About the Cluster Computing Workshop<a class="headerlink" href="#about-the-cluster-computing-workshop" title="Link to this heading">¶</a></h1>
+<h1>About the Cluster Computing Workshop<a class="headerlink" href="#about-the-cluster-computing-workshop" title="Link to this heading"></a></h1>
 <p>This workshop provides a set of written guides, tutorials, and example scripts designed to introduce researchers to working effectively on a remote compute cluster. The materials were originally developed for the Pavelsky Global Hydrology Lab at UNC Chapel Hill, where new group members often needed a structured onboarding path for using the EMES <strong>River</strong> cluster. However, the content is broadly applicable to any Linux-based HPC system that uses Slurm.</p>
 <section id="the-workshop-is-aimed-at-researchers-with-a-wide-range-of-technical-experience-many-sections-assume-no-prior-exposure-to-high-performance-computing-or-remote-unix-environments">
-<h2>The workshop is aimed at researchers with a wide range of technical experience. Many sections assume no prior exposure to high-performance computing or remote Unix environments.<a class="headerlink" href="#the-workshop-is-aimed-at-researchers-with-a-wide-range-of-technical-experience-many-sections-assume-no-prior-exposure-to-high-performance-computing-or-remote-unix-environments" title="Link to this heading">¶</a></h2>
+<h2>The workshop is aimed at researchers with a wide range of technical experience. Many sections assume no prior exposure to high-performance computing or remote Unix environments.<a class="headerlink" href="#the-workshop-is-aimed-at-researchers-with-a-wide-range-of-technical-experience-many-sections-assume-no-prior-exposure-to-high-performance-computing-or-remote-unix-environments" title="Link to this heading"></a></h2>
 </section>
 <section id="what-this-workshop-contains">
-<h2>What this workshop contains<a class="headerlink" href="#what-this-workshop-contains" title="Link to this heading">¶</a></h2>
+<h2>What this workshop contains<a class="headerlink" href="#what-this-workshop-contains" title="Link to this heading"></a></h2>
 <p>The repository includes:</p>
 <section id="written-guides">
-<h3><strong>Written Guides</strong><a class="headerlink" href="#written-guides" title="Link to this heading">¶</a></h3>
+<h3><strong>Written Guides</strong><a class="headerlink" href="#written-guides" title="Link to this heading"></a></h3>
 <p>The primary learning modules are provided as Markdown documents, each focused on a core skill:</p>
 <ul class="simple">
 <li><p><strong>P1_Basics.md</strong><br />
@@ -56,17 +121,17 @@ Additional modules follow the naming pattern <code class="docutils literal notra
 </ul>
 </section>
 <section id="reference-sheets">
-<h3><strong>Reference Sheets</strong><a class="headerlink" href="#reference-sheets" title="Link to this heading">¶</a></h3>
+<h3><strong>Reference Sheets</strong><a class="headerlink" href="#reference-sheets" title="Link to this heading"></a></h3>
 <p>Concise cheat-sheets summarize commonly used commands, flags, Slurm directives, and job status codes. These are intended as quick look-up aids during day-to-day work.</p>
 </section>
 <section id="example-scripts">
-<h3><strong>Example Scripts</strong><a class="headerlink" href="#example-scripts" title="Link to this heading">¶</a></h3>
+<h3><strong>Example Scripts</strong><a class="headerlink" href="#example-scripts" title="Link to this heading"></a></h3>
 <p>The repository includes example shell scripts and job files demonstrating how to structure tasks on a cluster. These are designed as templates readers can adapt to their own workflows.</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="goals-and-design-philosophy">
-<h2>Goals and design philosophy<a class="headerlink" href="#goals-and-design-philosophy" title="Link to this heading">¶</a></h2>
+<h2>Goals and design philosophy<a class="headerlink" href="#goals-and-design-philosophy" title="Link to this heading"></a></h2>
 <p>This workshop was designed with three core goals:</p>
 <ol class="arabic simple">
 <li><p><strong>Accessibility</strong><br />
@@ -79,7 +144,7 @@ Using a cluster effectively is a foundational part of building reproducible scie
 </section>
 <hr class="docutils" />
 <section id="future-development">
-<h2>Future Development<a class="headerlink" href="#future-development" title="Link to this heading">¶</a></h2>
+<h2>Future Development<a class="headerlink" href="#future-development" title="Link to this heading"></a></h2>
 <p>This workshop continues to evolve. Planned additions include:</p>
 <ul class="simple">
 <li><p>Expanded modules on multi-step workflows, job arrays, environment modules, and Python virtual environments</p></li>
@@ -89,7 +154,7 @@ Using a cluster effectively is a foundational part of building reproducible scie
 </section>
 <hr class="docutils" />
 <section id="citation-and-contact">
-<h2>Citation and Contact<a class="headerlink" href="#citation-and-contact" title="Link to this heading">¶</a></h2>
+<h2>Citation and Contact<a class="headerlink" href="#citation-and-contact" title="Link to this heading"></a></h2>
 <p>If you wish to reference or reuse these materials in your lab or classroom, you may cite the workshop as:</p>
 <blockquote>
 <div><p><em>Cluster Computing Workshop, developed by Jack Dechow for the Pavelsky Global Hydrology Lab, UNC Chapel Hill.</em><br />
@@ -101,85 +166,34 @@ Website: <a class="reference external" href="https://dechowjack.github.io/Cluste
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Cluster Computing Workshop Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="P1_Basics.html" class="btn btn-neutral float-right" title="Workshop P1 - Cluster Computing Basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Jack Dechow.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="Main">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">Cluster Computing Workshop</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-
-<search id="searchbox" style="display: none" role="search">
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Overview</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">About the Cluster Computing Workshop</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Workshop Guides</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="P1_Basics.html">UNC Cluster Computing Workshop - Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="P2_Slurm.html">UNC Cluster Computing Workshop - Slurm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="P3_ComplexJobs.html">UNC Cluster Computing Workshop - Slurm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GitSetup.html">UNC Cluster Computing Workshop - Git Setup Tutorial</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Reference Sheets</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="refs/REF_Commands.html">Linux + Slurm Commands Reference Sheet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="refs/REF_Flags.html">Linux + Slurm Flags Reference Sheet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="refs/REF_SBATCH_Directives.html">Slurm SBATCH Directive Reference Sheet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="refs/REF_SlurmJobStatus.html">Slurm Job Status Reference Sheet</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Cluster Computing Workshop Documentation</a></li>
-      <li>Next: <a href="P1_Basics.html" title="next chapter">UNC Cluster Computing Workshop - Basics</a></li>
-  </ul></li>
-</ul>
-</div>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &#169;2025, Jack Dechow.
-      
-      |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
-      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
-      
-      |
-      <a href="_sources/about.md.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>

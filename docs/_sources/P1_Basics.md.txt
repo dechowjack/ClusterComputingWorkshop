@@ -108,7 +108,7 @@ To actually connect to the cluster, we use the command `ssh` to connect using th
 
 In my case, when I ssh to the GHL cluster I see the following:
 
-```bash
+```console
 jldechow@Jacks-MBP SWOT % ssh jldechow@river.emes.unc.edu
 ***************************************************************************
 

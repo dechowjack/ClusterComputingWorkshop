@@ -1,45 +1,125 @@
+
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en" data-content_root="./">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workshop P1 - Cluster Computing Basics &mdash; Cluster Computing Workshop 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
-    <title>Workshop P1 - Cluster Computing Basics &#8212; Cluster Computing Workshop 0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
-    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
-    <script src="_static/documentation_options.js?v=2709fde1"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Workshop P2 - Slurm Basics" href="P2_Slurm.html" />
-    <link rel="prev" title="About the Cluster Computing Workshop" href="about.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
+    <link rel="prev" title="About the Cluster Computing Workshop" href="about.html" /> 
+</head>
 
-  
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
           
+          
+          <a href="index.html" class="icon icon-home">
+            Cluster Computing Workshop
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About the Cluster Computing Workshop</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workshop Guides</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Workshop P1 - Cluster Computing Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basics-of-cluster-computing">1. Basics of cluster computing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-cluster">1.1 What is a cluster?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unix-basics">1.2 UNIX basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-command-line-operations">1.3 Basic command line operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-command-line-interactions">1.4 Example command line interactions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-the-cluster">2. Accessing the cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#terminal">2.1 Terminal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ssh">2.2 SSH</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-cluster">3. Using the cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-structure-of-the-ghl-cluster">3.1 Basic structure of the GHL cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#understanding-the-available-resources">3.2 Understanding the available resources</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#host">Host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os">OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#platform">Platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#memory">Memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cpu">CPU</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#moving-files-between-your-local-machine-and-the-cluster">3.3 Moving files between your local machine and the cluster</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="P2_Slurm.html">Workshop P2 - Slurm Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="P3_ComplexJobs.html">Workshop P3 - Complex Jobs in Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GitSetup.html">UNC Cluster Computing Workshop - Git Setup Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference Sheets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_Commands.html">Linux + Slurm Commands Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_Flags.html">Linux + Slurm Flags Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_SBATCH_Directives.html">Slurm SBATCH Directive Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_SlurmJobStatus.html">Slurm Job Status Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_ExitCodes.html">Slurm Exit Code Reference Sheet</a></li>
+</ul>
 
-          <div class="body" role="main">
-            
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Cluster Computing Workshop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Workshop P1 - Cluster Computing Basics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/P1_Basics.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="workshop-p1-cluster-computing-basics">
-<h1>Workshop P1 - Cluster Computing Basics<a class="headerlink" href="#workshop-p1-cluster-computing-basics" title="Link to this heading">¶</a></h1>
+<h1>Workshop P1 - Cluster Computing Basics<a class="headerlink" href="#workshop-p1-cluster-computing-basics" title="Link to this heading"></a></h1>
 <section id="basics-of-cluster-computing">
-<h2>1. Basics of cluster computing<a class="headerlink" href="#basics-of-cluster-computing" title="Link to this heading">¶</a></h2>
+<h2>1. Basics of cluster computing<a class="headerlink" href="#basics-of-cluster-computing" title="Link to this heading"></a></h2>
 <section id="what-is-a-cluster">
-<h3>1.1 What is a cluster?<a class="headerlink" href="#what-is-a-cluster" title="Link to this heading">¶</a></h3>
+<h3>1.1 What is a cluster?<a class="headerlink" href="#what-is-a-cluster" title="Link to this heading"></a></h3>
 <p>Cluster typically refers to a remote machine - i.e. <em>not</em> your local computer - that a user connects to using command line utilities. These machines have more logical CPU cores, RAM, VRAM, and storage available than the computers most people use. Multiple users can simultaneously access a cluster at once, and request a portion of the available resources to run programs. The benefit of running your work on a cluster is:</p>
 <ol class="arabic simple">
 <li><p>Clusters can run complex programs faster than a local machine</p></li>
@@ -47,7 +127,7 @@
 </ol>
 </section>
 <section id="unix-basics">
-<h3>1.2 UNIX basics<a class="headerlink" href="#unix-basics" title="Link to this heading">¶</a></h3>
+<h3>1.2 UNIX basics<a class="headerlink" href="#unix-basics" title="Link to this heading"></a></h3>
 <p>Clusters generally run on an operating system derived from the UNIX family of operating systems. The most widely know UNIX-like OS is probably MacOS. There are many differences between Windows and UNIX-like operating systems, but the two most applicable to the average user are:</p>
 <ol class="arabic simple">
 <li><p>UNIX based systems have a native <em>command line interface</em> or CLI. On MacOS, this is the <em>terminal</em> application. There is not a native CLI on Windows, and instead applications like <em>PuTTY</em> add CLI to Windows machines.</p></li>
@@ -56,7 +136,7 @@
 <p>Separate from these, the interface with the cluster is entirely in the CLI. There is not a graphical user interface (GUI).</p>
 </section>
 <section id="basic-command-line-operations">
-<h3>1.3 Basic command line operations<a class="headerlink" href="#basic-command-line-operations" title="Link to this heading">¶</a></h3>
+<h3>1.3 Basic command line operations<a class="headerlink" href="#basic-command-line-operations" title="Link to this heading"></a></h3>
 <p>In your day to day life on an OS with a GUI, things like copy-paste or changing directories is a clicking-based operation. In reality, when you highlight then copy-paste text, your OS is running the CLI operations that correspond to what you’ve clicked. These operations are usually done in a language called <em>bash</em>. Below is a list common bash commands that help with everyday use on the clusters</p>
 <table class="docutils align-default">
 <thead>
@@ -116,7 +196,7 @@
 </table>
 </section>
 <section id="example-command-line-interactions">
-<h3>1.4 Example command line interactions<a class="headerlink" href="#example-command-line-interactions" title="Link to this heading">¶</a></h3>
+<h3>1.4 Example command line interactions<a class="headerlink" href="#example-command-line-interactions" title="Link to this heading"></a></h3>
 <p>Below is an example of using these operations on the command line</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jldechow@Jacks-MBP<span class="w"> </span>Data<span class="w"> </span>%<span class="w"> </span><span class="nb">pwd</span>
 /Users/jldechow/Data
@@ -175,35 +255,35 @@ Archive<span class="w">		</span>LakeObs<span class="w">		</span>TuolumneMeadows<
 </section>
 </section>
 <section id="accessing-the-cluster">
-<h2>2. Accessing the cluster<a class="headerlink" href="#accessing-the-cluster" title="Link to this heading">¶</a></h2>
+<h2>2. Accessing the cluster<a class="headerlink" href="#accessing-the-cluster" title="Link to this heading"></a></h2>
 <section id="terminal">
-<h3>2.1 Terminal<a class="headerlink" href="#terminal" title="Link to this heading">¶</a></h3>
+<h3>2.1 Terminal<a class="headerlink" href="#terminal" title="Link to this heading"></a></h3>
 <p>For MacOS users, the only requirement is to open the native <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> app.</p>
 <p>For Windows users, a terminal application needs to be downloaded. When I was working on windows machines, I used the <code class="docutils literal notranslate"><span class="pre">PuTTY</span></code> terminal emulator (https://putty.org/index.html).</p>
 </section>
 <section id="ssh">
-<h3>2.2 SSH<a class="headerlink" href="#ssh" title="Link to this heading">¶</a></h3>
+<h3>2.2 SSH<a class="headerlink" href="#ssh" title="Link to this heading"></a></h3>
 <p>To actually connect to the cluster, we use the command <code class="docutils literal notranslate"><span class="pre">ssh</span></code> to connect using the <code class="docutils literal notranslate"><span class="pre">secure</span> <span class="pre">shell</span> <span class="pre">protocol</span></code>. If you’ve ever heard someone say “I need to remote into the cluster”, this is what they mean. To actually do this, open your <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> application and type the following command:</p>
 <p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">onyen&#64;river.emes.unc.edu</span></code></p>
 <p>In my case, when I ssh to the GHL cluster I see the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jldechow@Jacks-MBP<span class="w"> </span>SWOT<span class="w"> </span>%<span class="w"> </span>ssh<span class="w"> </span>jldechow@river.emes.unc.edu
-***************************************************************************
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">jldechow@Jacks-MBP SWOT % </span>ssh<span class="w"> </span>jldechow@river.emes.unc.edu
+<span class="go">***************************************************************************</span>
 
-<span class="w">                </span>The<span class="w"> </span>University<span class="w"> </span>of<span class="w"> </span>North<span class="w"> </span>Carolina<span class="w"> </span>at<span class="w"> </span>Chapel<span class="w"> </span>Hill
-<span class="w">               </span>-----------------------<span class="w"> </span>o<span class="w"> </span>-----------------------
-<span class="w">               </span>Unauthorized<span class="w"> </span>access<span class="w"> </span>to<span class="w"> </span>this<span class="w"> </span>system<span class="w"> </span>is<span class="w"> </span>prohibited.
+<span class="go">                The University of North Carolina at Chapel Hill</span>
+<span class="go">               ----------------------- o -----------------------</span>
+<span class="go">               Unauthorized access to this system is prohibited.</span>
 
-***************************************************************************
-jldechow@river.emes.unc.edu<span class="err">&#39;</span>s<span class="w"> </span>password:<span class="w"> </span>
+<span class="go">***************************************************************************</span>
+<span class="go">jldechow@river.emes.unc.edu&#39;s password: </span>
 </pre></div>
 </div>
 <p>Here, enter your password and you are officially “remotely connected to the cluster”!</p>
 </section>
 </section>
 <section id="using-the-cluster">
-<h2>3. Using the cluster<a class="headerlink" href="#using-the-cluster" title="Link to this heading">¶</a></h2>
+<h2>3. Using the cluster<a class="headerlink" href="#using-the-cluster" title="Link to this heading"></a></h2>
 <section id="basic-structure-of-the-ghl-cluster">
-<h3>3.1 Basic structure of the GHL cluster<a class="headerlink" href="#basic-structure-of-the-ghl-cluster" title="Link to this heading">¶</a></h3>
+<h3>3.1 Basic structure of the GHL cluster<a class="headerlink" href="#basic-structure-of-the-ghl-cluster" title="Link to this heading"></a></h3>
 <p>While the examples in this section are specific to the UNC EMES River cluster, most of these ideas are generically applicable to other cluster systems. First, lets see <em>where</em> on the cluster we end up after a successful <code class="docutils literal notranslate"><span class="pre">ssh</span></code> execution.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Last<span class="w"> </span>login:<span class="w"> </span>Fri<span class="w"> </span>Nov<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:14:45<span class="w"> </span><span class="m">2025</span><span class="w"> </span>from<span class="w"> </span><span class="m">152</span>.23.121.91
 <span class="c1">##########################################################################</span>
@@ -240,7 +320,7 @@ jldechow@river:~$<span class="w"> </span>
 <p>Here we use command <code class="docutils literal notranslate"><span class="pre">readlink</span></code> to print the value of a <code class="docutils literal notranslate"><span class="pre">symlink</span></code> with the flag <code class="docutils literal notranslate"><span class="pre">-f</span></code> to ensure that if there are nested symlinks, they all print their full path. The important thing to take away here is that no matter where you are on the cluster, you can always return to the home directory with <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code>.</p>
 </section>
 <section id="understanding-the-available-resources">
-<h3>3.2 Understanding the available resources<a class="headerlink" href="#understanding-the-available-resources" title="Link to this heading">¶</a></h3>
+<h3>3.2 Understanding the available resources<a class="headerlink" href="#understanding-the-available-resources" title="Link to this heading"></a></h3>
 <p>Let’s revisit the splash text printed by the River Cluster when we first <code class="docutils literal notranslate"><span class="pre">ssh</span></code> into the remote machine.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Last<span class="w"> </span>login:<span class="w"> </span>Fri<span class="w"> </span>Nov<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">13</span>:14:45<span class="w"> </span><span class="m">2025</span><span class="w"> </span>from<span class="w"> </span><span class="m">152</span>.23.121.91
 <span class="c1">##########################################################################</span>
@@ -268,23 +348,23 @@ jldechow@river:~$<span class="w"> </span>
 </pre></div>
 </div>
 <section id="host">
-<h4>Host<a class="headerlink" href="#host" title="Link to this heading">¶</a></h4>
+<h4>Host<a class="headerlink" href="#host" title="Link to this heading"></a></h4>
 <p>Let’s go through and break this down line by line, starting with the <code class="docutils literal notranslate"><span class="pre">Host</span></code>. For example, CLI on River shows <code class="docutils literal notranslate"><span class="pre">jldechow&#64;river:</span></code>. This shows that the user <code class="docutils literal notranslate"><span class="pre">jldechow</span></code> is logged onto the host machine <code class="docutils literal notranslate"><span class="pre">river</span></code>. For small clusters or local machines, this is not super important. However, on large HPC clusters, sometimes the <code class="docutils literal notranslate"><span class="pre">host</span></code> where your <code class="docutils literal notranslate"><span class="pre">user</span></code> and directories live at doesn’t match up with the <code class="docutils literal notranslate"><span class="pre">host</span></code> that compute job are run on. On a MacOS machine, you can see this in the terminal as well. For example, on my laptop the terminal shows <code class="docutils literal notranslate"><span class="pre">jldechow&#64;Jacks-MBP</span></code>. As far as the operating system is concerned, the name of my computer is <code class="docutils literal notranslate"><span class="pre">Jacks-MBP</span></code>. The hostname for a Windows machine can be seen in the “About this PC” section.</p>
 </section>
 <section id="os">
-<h4>OS<a class="headerlink" href="#os" title="Link to this heading">¶</a></h4>
+<h4>OS<a class="headerlink" href="#os" title="Link to this heading"></a></h4>
 <p>Next, the splash reports that the operating system or OS the server is running on is <code class="docutils literal notranslate"><span class="pre">Ubuntu</span> <span class="pre">24.04</span> <span class="pre">|</span> <span class="pre">6.8.0-85-generic</span></code>. Ubuntu is a free and widely used distribution of <code class="docutils literal notranslate"><span class="pre">Linux</span></code>. Linux is another UNIX-like OS, and is used on virtually every single supercomputer. Ubuntu is a specific distribution, which can be though of as the “brand” of Linux you are using. Other popular distributions for HPC applications are <code class="docutils literal notranslate"><span class="pre">Redhat</span></code> and <code class="docutils literal notranslate"><span class="pre">Debian</span></code>.</p>
 </section>
 <section id="platform">
-<h4>Platform<a class="headerlink" href="#platform" title="Link to this heading">¶</a></h4>
+<h4>Platform<a class="headerlink" href="#platform" title="Link to this heading"></a></h4>
 <p>This computer was manufactured by Dell, and the model name and number is <code class="docutils literal notranslate"><span class="pre">PowerEdge</span> <span class="pre">R7725</span></code>.</p>
 </section>
 <section id="memory">
-<h4>Memory<a class="headerlink" href="#memory" title="Link to this heading">¶</a></h4>
+<h4>Memory<a class="headerlink" href="#memory" title="Link to this heading"></a></h4>
 <p>Memory or RAM (random access memory) is the amount of high speed storage used for cache-ing or holding data/programs/addresses for easy access. Computers typical have RAM in quantities that are powers of 2. Since the system reports <code class="docutils literal notranslate"><span class="pre">515.2GB</span></code> of RAM, the system likely has <code class="docutils literal notranslate"><span class="pre">512GB</span></code> of RAM available for computing, and the other <code class="docutils literal notranslate"><span class="pre">3.2GB</span></code> of RAM is reserved for system level processes (i.e. running the remote machine).</p>
 </section>
 <section id="cpu">
-<h4>CPU<a class="headerlink" href="#cpu" title="Link to this heading">¶</a></h4>
+<h4>CPU<a class="headerlink" href="#cpu" title="Link to this heading"></a></h4>
 <p>Finally, the CPU. The Central Processing Unit is the “brain” or “engine” of a computer. The splash gives us the following information:</p>
 <p><code class="docutils literal notranslate"><span class="pre">CPU:</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">96</span> <span class="pre">vcpu</span> <span class="pre">|</span> <span class="pre">2</span> <span class="pre">socket</span> <span class="pre">|</span> <span class="pre">24</span> <span class="pre">cores-per-socket</span> <span class="pre">|</span> <span class="pre">2</span> <span class="pre">threads-per-core</span></code></p>
 <p>Lets break this down in a slightly different order than it’s given to us:</p>
@@ -298,7 +378,7 @@ jldechow@river:~$<span class="w"> </span>
 </section>
 </section>
 <section id="moving-files-between-your-local-machine-and-the-cluster">
-<h3>3.3 Moving files between your local machine and the cluster<a class="headerlink" href="#moving-files-between-your-local-machine-and-the-cluster" title="Link to this heading">¶</a></h3>
+<h3>3.3 Moving files between your local machine and the cluster<a class="headerlink" href="#moving-files-between-your-local-machine-and-the-cluster" title="Link to this heading"></a></h3>
 <p>Having access to your files on the cluster, and pulling down results to your local machine are important steps to actually getting use out of a cluster. The standard way of moving files is with the <code class="docutils literal notranslate"><span class="pre">scp</span></code> command. In the example below, I’ll demonstrate moving files from the <code class="docutils literal notranslate"><span class="pre">Data/SWOT/</span></code> folder on my local machine to the <code class="docutils literal notranslate"><span class="pre">$HOME/public/</span></code> folder on my cluster account.</p>
 <p><code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">-r</span> <span class="pre">/Users/jldechow/Data/SWOT/test.txt</span> <span class="pre">jldechow&#64;river.emes.unc.edu:/afs/cas.unc.edu/users/j/l/jldechow/public</span></code></p>
 </section>
@@ -306,90 +386,34 @@ jldechow@river:~$<span class="w"> </span>
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="about.html" class="btn btn-neutral float-left" title="About the Cluster Computing Workshop" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="P2_Slurm.html" class="btn btn-neutral float-right" title="Workshop P2 - Slurm Basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Jack Dechow.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="Main">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">Cluster Computing Workshop</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-
-<search id="searchbox" style="display: none" role="search">
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Overview</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="about.html">About the Cluster Computing Workshop</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Workshop Guides</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Workshop P1 - Cluster Computing Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#basics-of-cluster-computing">1. Basics of cluster computing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#accessing-the-cluster">2. Accessing the cluster</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-the-cluster">3. Using the cluster</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="P2_Slurm.html">Workshop P2 - Slurm Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="P3_ComplexJobs.html">Workshop P3 - Complex Jobs in Slurm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GitSetup.html">UNC Cluster Computing Workshop - Git Setup Tutorial</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Reference Sheets</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="refs/REF_Commands.html">Linux + Slurm Commands Reference Sheet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="refs/REF_Flags.html">Linux + Slurm Flags Reference Sheet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="refs/REF_SBATCH_Directives.html">Slurm SBATCH Directive Reference Sheet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="refs/REF_SlurmJobStatus.html">Slurm Job Status Reference Sheet</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="about.html" title="previous chapter">About the Cluster Computing Workshop</a></li>
-      <li>Next: <a href="P2_Slurm.html" title="next chapter">Workshop P2 - Slurm Basics</a></li>
-  </ul></li>
-</ul>
-</div>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &#169;2025, Jack Dechow.
-      
-      |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
-      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
-      
-      |
-      <a href="_sources/P1_Basics.md.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>
