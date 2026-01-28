@@ -1,4 +1,4 @@
-# UNC CCW - Cluster Computing Basics
+# Workshop P1 - Cluster Computing Basics
 ## 1. Basics of cluster computing
 ### 1.1 What is a cluster?
 Cluster typically refers to a remote machine - i.e. *not* your local computer - that a user connects to using command line utilities. These machines have more logical CPU cores, RAM, VRAM, and storage available than the computers most people use. Multiple users can simultaneously access a cluster at once, and request a portion of the available resources to run programs. The benefit of running your work on a cluster is: 
