@@ -5,17 +5,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>UNC Cluster Computing Workshop - Slurm &#8212; Cluster Computing Workshop 0.1 documentation</title>
+    <title>UNC CCW - Slurm &#8212; Cluster Computing Workshop 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
     <script src="_static/documentation_options.js?v=2709fde1"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="UNC Cluster Computing Workshop - Slurm" href="P3_ComplexJobs.html" />
-    <link rel="prev" title="UNC Cluster Computing Workshop - Basics" href="P1_Basics.html" />
+    <link rel="next" title="UNC CCW - Complex Jobs in Slurm" href="P3_ComplexJobs.html" />
+    <link rel="prev" title="UNC CCW - Cluster Computing Basics" href="P1_Basics.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,8 +34,8 @@
 
           <div class="body" role="main">
             
-  <section id="unc-cluster-computing-workshop-slurm">
-<h1>UNC Cluster Computing Workshop - Slurm<a class="headerlink" href="#unc-cluster-computing-workshop-slurm" title="Link to this heading">¶</a></h1>
+  <section id="unc-ccw-slurm">
+<h1>UNC CCW - Slurm<a class="headerlink" href="#unc-ccw-slurm" title="Link to this heading">¶</a></h1>
 <section id="what-is-slurm">
 <h2>1. What is SLURM?<a class="headerlink" href="#what-is-slurm" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Simple</span> <span class="pre">Linux</span> <span class="pre">Utility</span> <span class="pre">for</span> <span class="pre">Resource</span> <span class="pre">Management</span></code> or <code class="docutils literal notranslate"><span class="pre">Slurm</span></code> for short, is a job scheduling software used on HPC clusters. The primary job of Slurm is to manage and allocate resources between many users. It decides when jobs start, allocates the correct resources for a job, and tracks resources to make sure every job uses distinct GPUs and CPUs.</p>
@@ -242,24 +243,36 @@ jldechow@river:~$<span class="w"> </span>squeue<span class="w"> </span>
     </div>
 </search>
 <script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Workshop guides</span></p>
+<p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About the Cluster Computing Workshop</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workshop Guides</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="P1_Basics.html">UNC Cluster Computing Workshop - Basics</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">UNC Cluster Computing Workshop - Slurm</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="P1_Basics.html">UNC CCW - Cluster Computing Basics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">UNC CCW - Slurm</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-slurm">1. What is SLURM?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-a-job">2. What is a job?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#basic-slurm-commands">3. Basic Slurm Commands</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="P3_ComplexJobs.html">UNC Cluster Computing Workshop - Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="P3_ComplexJobs.html">UNC CCW - Complex Jobs in Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GitSetup.html">UNC Cluster Computing Workshop - Git Setup Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference Sheets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_Commands.html">Linux + Slurm Commands Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_Flags.html">Linux + Slurm Flags Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_SBATCH_Directives.html">Slurm SBATCH Directive Reference Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refs/REF_SlurmJobStatus.html">Slurm Job Status Reference Sheet</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="P1_Basics.html" title="previous chapter">UNC Cluster Computing Workshop - Basics</a></li>
-      <li>Next: <a href="P3_ComplexJobs.html" title="next chapter">UNC Cluster Computing Workshop - Slurm</a></li>
+      <li>Previous: <a href="P1_Basics.html" title="previous chapter">UNC CCW - Cluster Computing Basics</a></li>
+      <li>Next: <a href="P3_ComplexJobs.html" title="next chapter">UNC CCW - Complex Jobs in Slurm</a></li>
   </ul></li>
 </ul>
 </div>
