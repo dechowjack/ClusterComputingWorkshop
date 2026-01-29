@@ -165,7 +165,7 @@ Here we use command `readlink` to print the value of a `symlink` with the flag `
 ### 3.2 Understanding the available resources
 Let's revisit the splash text printed by the River Cluster when we first `ssh` into the remote machine.
 
-```bash
+```console
 Last login: Fri Nov  7 13:14:45 2025 from 152.23.121.91
 ##########################################################################
 #                                                                        #
