@@ -72,7 +72,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#cpu">CPU</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#moving-files-between-your-local-machine-and-the-cluster">3.3 Moving files between your local machine and the cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu-availability">3.3 GPU Availability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#moving-files-between-your-local-machine-and-the-cluster">3.4 Moving files between your local machine and the cluster</a></li>
 </ul>
 </li>
 </ul>
@@ -377,10 +378,44 @@ jldechow@river:~$<span class="w"> </span>
 <p>Given all of this, in theory a single job on the River cluster could request <code class="docutils literal notranslate"><span class="pre">512GB</span></code> of RAM and <code class="docutils literal notranslate"><span class="pre">96</span> <span class="pre">CPUs</span></code>. This would be very rude though!</p>
 </section>
 </section>
+<section id="gpu-availability">
+<h3>3.3 GPU Availability<a class="headerlink" href="#gpu-availability" title="Link to this heading"></a></h3>
+<p>On the River cluster, we have two graphics cards (aka GPUs) available for use. To see what GPUs we have available, as well as their current usage and GPU job queues, we run <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>. Let’s see what that result gives us below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">jldechow@river:~$ </span>nvidia-smi<span class="w"> </span>
+<span class="go">Thu Jan 29 11:05:38 2026       </span>
+<span class="go">+-----------------------------------------------------------------------------------------+</span>
+<span class="go">| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |</span>
+<span class="go">+-----------------------------------------+------------------------+----------------------+</span>
+<span class="go">| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |</span>
+<span class="go">| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |</span>
+<span class="go">|                                         |                        |               MIG M. |</span>
+<span class="go">|=========================================+========================+======================|</span>
+<span class="go">|   0  NVIDIA L40S                    On  |   00000000:89:00.0 Off |                    0 |</span>
+<span class="go">| N/A   34C    P8             33W /  350W |       0MiB /  46068MiB |      0%      Default |</span>
+<span class="go">|                                         |                        |                  N/A |</span>
+<span class="go">+-----------------------------------------+------------------------+----------------------+</span>
+<span class="go">|   1  NVIDIA L40S                    On  |   00000001:C5:00.0 Off |                    0 |</span>
+<span class="go">| N/A   34C    P8             32W /  350W |       0MiB /  46068MiB |      0%      Default |</span>
+<span class="go">|                                         |                        |                  N/A |</span>
+<span class="go">+-----------------------------------------+------------------------+----------------------+</span>
+
+<span class="go">+-----------------------------------------------------------------------------------------+</span>
+<span class="go">| Processes:                                                                              |</span>
+<span class="go">|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |</span>
+<span class="go">|        ID   ID                                                               Usage      |</span>
+<span class="go">|=========================================================================================|</span>
+<span class="go">|  No running processes found                                                             |</span>
+<span class="go">+-----------------------------------------------------------------------------------------+</span>
+<span class="gp">jldechow@river:~$ </span>
+</pre></div>
+</div>
+<p>So from this printout we can see that <code class="docutils literal notranslate"><span class="pre">River</span></code> has two <code class="docutils literal notranslate"><span class="pre">NVIDIA</span> <span class="pre">L40S</span></code> GPUs with <code class="docutils literal notranslate"><span class="pre">48GB</span> <span class="pre">VRAM</span></code> available. For run of the mill scientific programming, GPU resources are largely irrelevent. However, they are very relevant to AI and machine learning workloads.</p>
+</section>
 <section id="moving-files-between-your-local-machine-and-the-cluster">
-<h3>3.3 Moving files between your local machine and the cluster<a class="headerlink" href="#moving-files-between-your-local-machine-and-the-cluster" title="Link to this heading"></a></h3>
+<h3>3.4 Moving files between your local machine and the cluster<a class="headerlink" href="#moving-files-between-your-local-machine-and-the-cluster" title="Link to this heading"></a></h3>
 <p>Having access to your files on the cluster, and pulling down results to your local machine are important steps to actually getting use out of a cluster. The standard way of moving files is with the <code class="docutils literal notranslate"><span class="pre">scp</span></code> command. In the example below, I’ll demonstrate moving files from the <code class="docutils literal notranslate"><span class="pre">Data/SWOT/</span></code> folder on my local machine to the <code class="docutils literal notranslate"><span class="pre">$HOME/public/</span></code> folder on my cluster account.</p>
 <p><code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">-r</span> <span class="pre">/Users/jldechow/Data/SWOT/test.txt</span> <span class="pre">jldechow&#64;river.emes.unc.edu:/afs/cas.unc.edu/users/j/l/jldechow/public</span></code></p>
+<p>File transfer can also be accomplished with <code class="docutils literal notranslate"><span class="pre">rsync</span></code> and <code class="docutils literal notranslate"><span class="pre">sftp</span></code>.</p>
 </section>
 </section>
 </section>
